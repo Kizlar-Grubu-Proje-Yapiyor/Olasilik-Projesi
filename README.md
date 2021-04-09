@@ -15,8 +15,8 @@ Gereksinimler:
 
 * gcc (zorunlu)
 * make (isteğe bağlı)
-* Whiptail (önyüz için zorunlu)
-* Bash (önyüz için zorunlu)
+* whiptail (önyüz için zorunlu)
+* bash (önyüz için zorunlu)
 
 ```bash
 git clone https://github.com/Kizlar-Grubu-Proje-Yapiyor/Olasilik-Projesi.git
@@ -47,7 +47,7 @@ Bütün seçenekleri görmek veya yardım almak için:
 ./olasilik --yardim
 ```
 
-Ayrıca `Whiptail` tabanlı önyüzü de kullanabilirsiniz
+Ayrıca `whiptail` tabanlı önyüzü de kullanabilirsiniz
 
 ```bash
 ./olasilik-gui
