@@ -1,13 +1,5 @@
 # MAT0293 Olasılık ve İstatistik Projesi
 
-## Hızlı Erişim
-1. [Proje Grubu](##proje-grubu)
-1. [Derleme](##derleme)
-1. [Kullanım](##kullanim)
-1. [Lisans](##lisans)
-
----
-
 ## Proje Grubu
 
 * [Ali Cüneyt Çağlar](https://github.com/CuneytCaglar)
@@ -55,6 +47,7 @@ Bütün seçenekleri görmek veya yardım almak için:
 
 
 ## Lisans
+
 [GNU General Public License v3.0](LICENSE)  
 
 **Lütfen kodu lisansa uygun kullanın!**
