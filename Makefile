@@ -11,7 +11,7 @@ ODIR = obj
 
 CFLAGS = -I$(IDIR) -lm
 
-OBJS = main.o yardim.o
+OBJS = main.o yardim.o aritmetikortalama.o
 
 
 $(NAME): $(OBJS)
@@ -19,11 +19,16 @@ $(NAME): $(OBJS)
 
 build: $(NAME) cleano
 
+# Object Files
 main.o: $(SDIR)/main.c $(IDIR)/main.h
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 yardim.o: $(SDIR)/yardim.c $(IDIR)/yardim.h
 	$(CC) -c -o $@ $< $(CFLAGS)
+
+aritmetikortalama.o: $(SDIR)/aritmetikortalama.c $(IDIR)/aritmetikortalama.h
+	$(CC) -c -o $@ $< $(CFLAGS)
+
 
 .PHONY: clean
 

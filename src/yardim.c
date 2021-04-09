@@ -7,4 +7,9 @@ void yardim(FILE *fp, const char *argv)
 	fprintf(fp, "\tYardimi goruntule\n");
 	fprintf(fp, "-d [DOSYA], --dosya [DOSYA]\n");
 	fprintf(fp, "\tCiktiyi belirtilen dosyaya yonlendir\n");
+
+	fprintf(fp, "\n");
+
+	fprintf(fp, "-a [SAYILAR], --aritmetik-ortalama [SAYILAR]\n");
+	fprintf(fp, "\tVerilen sayilarin aritmetik ortalamasini hesaplar\n");
 }
