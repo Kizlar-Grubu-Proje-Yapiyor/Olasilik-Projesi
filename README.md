@@ -8,5 +8,7 @@
 * Halil Karataş
 * İbrahim Yahya Aydınlı
 
-### Lisans
+## Lisans
 [GNU General Public License v3.0](LICENSE)  
+
+**Lütfen kodu lisansa uygun kullanın!**
