@@ -13,8 +13,10 @@
 
 Gereksinimler:
 
-* gcc
-* make
+* gcc (zorunlu)
+* make (isteğe bağlı)
+* Whiptail (önyüz için zorunlu)
+* Bash (önyüz için zorunlu)
 
 ```bash
 git clone https://github.com/Kizlar-Grubu-Proje-Yapiyor/Olasilik-Projesi.git
@@ -25,7 +27,7 @@ make build
 Make olmadan derlemek için (önerilmez, desteklenmiyor):
 
 ```bash
-gcc main.c yardim.c -I include -o olasilik
+gcc main.c yardim.c aritmetikortalama.c -I include -o olasilik
 ```
 
 **Windows'ta çalışabilir fakat desteklenmemektedir!**
@@ -45,6 +47,11 @@ Bütün seçenekleri görmek veya yardım almak için:
 ./olasilik --yardim
 ```
 
+Ayrıca `Whiptail` tabanlı önyüzü de kullanabilirsiniz
+
+```bash
+./olasilik-gui
+``` 
 
 ## Lisans
 
