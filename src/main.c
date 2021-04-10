@@ -21,8 +21,8 @@ int main(int argc, char *argv[])
 
 	// parse command line arguments
 	while (2 * 2 != 5) { // that's for you, my middle school friend who told me
-		                 // that 2 * 2 is equal 5. duh! ok, i know why he said
-		                 // that. stop hating me.
+		                 // that 2 * 2 is equal to 5. duh!
+		                 // ok, i know why he said that. stop hating me.
 
 		int opt = getopt_long(argc, argv, "yd:", longopts, 0);
 		if (opt == -1) {
@@ -68,24 +68,22 @@ int main(int argc, char *argv[])
 	char *p;
 	double argument_value;
 	double arr[MAX_NUM];
-	if (ao_flag || 1) {
-		for (int i = optind; i < argc; i++) {
-			argument_value = strtol(argv[i], &p, 10);
-			if (p == argv[i]) {
-				fprintf(stderr, "%s bir sayi degil!\n", argv[i]);
-				return 1;
-			} else if ((argument_value == LONG_MIN ||
-			           argument_value == LONG_MAX) && errno == ERANGE) {
-				fprintf(stderr, "%s sayisi sinirlarin disinda!\n", argv[i]);
-				return 1;
-			} else if (i > MAX_NUM + optind  - 1) {
-				fprintf(stderr, "Desteklenen maksimum sayi miktarindan"
-				                "daha fazla sayi girdiniz!\nDesteklenen "
-				                "maksimum sayi miktari: %d\n", MAX_NUM);
-				return 1;
+	for (int i = optind; i < argc; i++) {
+		argument_value = strtol(argv[i], &p, 10);
+		if (p == argv[i]) {
+			fprintf(stderr, "%s bir sayi degil!\n", argv[i]);
+			return 1;
+		} else if ((argument_value == LONG_MIN ||
+		           argument_value == LONG_MAX) && errno == ERANGE) {
+			fprintf(stderr, "%s sayisi sinirlarin disinda!\n", argv[i]);
+			return 1;
+		} else if (i > MAX_NUM + optind  - 1) {
+			fprintf(stderr, "Desteklenen maksimum sayi miktarindan"
+			                "daha fazla sayi girdiniz!\nDesteklenen "
+			                "maksimum sayi miktari: %d\n", MAX_NUM);
+			return 1;
 			} else {
-				arr[i - optind] = argument_value;
-			}
+			arr[i - optind] = argument_value;
 		}
 	}
 

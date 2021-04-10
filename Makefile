@@ -17,7 +17,8 @@ OBJS = main.o yardim.o aritmetikortalama.o
 $(NAME): $(OBJS)
 	$(CC) $^ -o $@
 
-build: $(NAME) cleano
+build:
+	$(CC) $(SDIR)/* $(CFLAGS) -o $(NAME)
 
 %.o: $(SDIR)/%.c $(IDIR)/%.h
 	$(CC) -c -o $@ $< $(CFLAGS)
@@ -27,6 +28,3 @@ build: $(NAME) cleano
 
 clean:
 	rm -rf *.o $(NAME)
-
-cleano:
-	rm -rf *.o

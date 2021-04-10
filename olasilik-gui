@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 # Author: Ceyhun Sen
 # Olasilik projesi icin gui arayuzudur.
 # Whiptail paketinin yuklu olması zorunludur.
@@ -6,30 +6,53 @@
 WINDOW_HEIGHT=20
 WINDOW_WIDTH=100
 
-while [ 1 ]
-do
-	SECIM=$(whiptail --title "Olasılık ve İstatistik" \
-	--menu "Seçeneklerden birini seçiniz" \
-	${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 2 \
-	"1" "Aritmetik Ortalama" \
-	"2" "Geometrik Ortalama")
+main()
+{
+	while [ 1 ]
+	do
+		SECIM=$(whiptail --title "Olasılık ve İstatistik" \
+		--ok-button "Seç" --cancel-button "Çıkış" \
+		--menu "Seçeneklerden birini seçiniz" \
+		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 2 \
+		"1" "Aritmetik Ortalama" \
+		"2" "Geometrik Ortalama")
 
-	if [ $? = 1 ]
-	then
-		break
-	fi
+		if [ $? = 1 ]
+		then
+			break
+		fi
 
-	if [ ${SECIM} -eq 1 ]
-	then
-		DIZI=$(whiptail --inputbox "Hesaplamak istediğiniz diziyi girin" \
-		${WINDOW_HEIGHT} ${WINDOW_WIDTH} --title "Aritmetik Ortalama" \
-		3>&1 1>&2 2>&3)
-		CEVAP=$(./olasilik -a ${DIZI})
-		whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
-		${WINDOW_WIDTH} --title "cevap" 3>&1 1>&2 2>&3
-	elif [ ${SECIM} -eq 2 ]
-	then
-		whiptail --msgbox "Şuanlık desteklenmiyor" 8 39 --title \
-		"Geometrik Ortalama" 3>&1 1>&2 2>&3
-	fi
-done
+		# Aritmetik Ortalama
+		if [ ${SECIM} -eq 1 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			CEVAP=$(./olasilik --aritmetik-ortalama ${DIZI[@]})
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Aritmetik Ortalama" 3>&1 1>&2 2>&3
+
+		# Geometrik Ortalama
+		elif [ ${SECIM} -eq 2 ]
+		then
+			whiptail --msgbox "Şuanlık desteklenmiyor" 8 39 --title \
+			"Geometrik Ortalama" 3>&1 1>&2 2>&3
+
+		fi
+	done
+}
+
+sayi_al()
+{
+	DIZI=$(whiptail --inputbox "Hesaplamak istediğiniz diziyi girin" \
+	     ${WINDOW_HEIGHT} ${WINDOW_WIDTH} --title "Dizi girin:" \
+	     --ok-button "Hesapla" --cancel-button "Vazgeç" \
+         3>&1 1>&2 2>&3)
+}
+
+main
