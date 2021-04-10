@@ -83,8 +83,3 @@ int main(int argc, char *argv[])
 	}
 	return 0;
 }
-/*
- * ao hesaplama şeysi
-
-			fprintf(fp, "%lf\n", aritmetik_ortalama(argc - optind + 1, arr));
- * */
