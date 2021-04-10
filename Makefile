@@ -10,7 +10,6 @@ SDIR = src
 
 CFLAGS = -I$(IDIR) -lm
 
-# needed to enter everythin
 OBJS = main.o yardim.o aritmetikortalama.o
 
 
