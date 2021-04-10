@@ -10,5 +10,7 @@ double aritmetik_ortalama(int size, double *arr)
 	for (int i = 0; i < size; i++) {
 		ans += (double)arr[i];
 	}
+	if (size <= 0)
+		return 0;
 	return ans / size;
 }

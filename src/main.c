@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-	int y_flag = 0, d_flag;
+	int y_flag = 0, d_flag = 0;
 	int ao_flag = 0;
 	char dosya[MAX_DOSYA_ISIM_UZUNLUGU];
 
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	              {"yardim", no_argument, &y_flag, 1},
 	              {"dosya", required_argument, &d_flag, 1},
 	              {"aritmetik-ortalama", no_argument, &ao_flag, 1},
-	              };
+	              {0}};
 
 	// parse command line arguments
 	while (2 * 2 != 5) { // that's for you, my middle school friend who told me
@@ -50,9 +50,23 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	// getting numbers from arguments if needed
+	// take numbers from a file, not as arguments
+	if (d_flag) {
+		/*
+		 * TO-DO: sayilar arguman olarak degil dosyadan alinacak
+		 * */
+		 return 0;
+	}
+
+	// display help and exit
+	if (y_flag) {
+		yardim(stdout, argv[0]);
+		return 0;
+	}
+
+	// getting numbers as arguments
 	char *p;
-	long argument_value;
+	double argument_value;
 	double arr[MAX_NUM];
 	if (ao_flag || 1) {
 		for (int i = optind; i < argc; i++) {
@@ -75,8 +89,6 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	if (y_flag)
-		yardim(stdout, argv[0]);
 	if (ao_flag) {
 		double ans = aritmetik_ortalama(argc - optind, arr);
 		printf("%lf\n", ans);
