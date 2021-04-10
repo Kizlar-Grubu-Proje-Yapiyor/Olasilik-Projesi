@@ -2,68 +2,42 @@
 
 int main(int argc, char *argv[])
 {
-	FILE *fp = stdout;
-	int opt = 0;
-	char file_name[256];
-	int counter = 0;
+	int y_flag = 0, d_flag;
+	int ao_flag = 0;
+	char dosya[MAX_DOSYA_ISIM_UZUNLUGU];
 
-	struct option longopts[] = {
-	              {"yardim", no_argument, NULL, 'y'},
-	              {"dosya", required_argument, NULL, 'd'},
-	              {"aritmetik-ortalama", required_argument, NULL, 'a'},
-	              {"mesaj", required_argument, NULL, 'm'},
-	              {0}};
-
+	// if there are no arguments, print help and exit with status 1
 	if (argc <= 1) {
-		yardim(fp, argv[0]);
+		yardim(stdout, argv[0]);
+		return 1;
 	}
 
-	while (opt != -1) {
-		counter++;
-		opt = getopt_long(argc, argv, "yd:a:m:", longopts, 0);
+	// available command line arguments
+	struct option longopts[] = {
+	              {"yardim", no_argument, &y_flag, 1},
+	              {"dosya", required_argument, &d_flag, 1},
+	              {"aritmetik-ortalama", no_argument, &ao_flag, 1},
+	              };
+
+	// parse command line arguments
+	while (2 * 2 != 5) { // that's for you, my middle school friend who told me
+		                 // that 2 * 2 is equal 5. duh! ok, i know why he said
+		                 // that. stop hating me.
+
+		int opt = getopt_long(argc, argv, "yd:", longopts, 0);
+		if (opt == -1) {
+			break;
+		}
 
 		switch (opt) {
 		case 'y': {
-			yardim(fp, argv[0]);
-			return 0;
-		}
-		case 'd': {
-			strncpy(file_name, optarg ? optarg : "out.txt", sizeof(file_name));
-			file_name[sizeof(file_name) - 1] = '\0';
+			y_flag = 1;
 			break;
 		}
-		case 'a': {
-			/*
-			 * TO-DO: Burası bircok case'de gecerli oldugu icin hepsinde
-			 * calisacak sekilde ayarlanmali.
-			 * */
-			errno = 0;
-			char *p;
-			long argument_value;
-			double arr[MAX_NUM];
-			for (int i = counter + 1; i < argc; i++) {
-				argument_value = strtol(argv[i], &p, 10);
-				if (p == argv[i]) {
-					fprintf(stderr, "%s bir sayi degil!\n", argv[i]);
-					return 1;
-				} else if ((argument_value == LONG_MIN ||
-				           argument_value == LONG_MAX) && errno == ERANGE) {
-					fprintf(stderr, "%s sayisi cok buyuk!\n", argv[i]);
-					return 1;
-				} else if (i >= MAX_NUM + counter + 1) {
-					fprintf(stderr, "Desteklenen maksimum sayi miktarindan"
-					                "daha fazla sayi girdiniz!\nDesteklenen "
-					                "maksimum sayi miktari: %d\n", MAX_NUM);
-					return 1;
-				} else {
-					arr[i - counter - 1] = argument_value;
-				}
-			}
-			fprintf(fp, "%lf\n", aritmetik_ortalama(argc - counter - 1, arr));
-			return 0;
-		}
-		case 'm': {
-			printf("m, %s\n", optarg);
+		case 'd': {
+			d_flag = 1;
+			strncpy(dosya, optarg, sizeof(dosya));
+            dosya[sizeof(dosya) - 1] = '\0';
 			break;
 		}
 		case '?': {
@@ -75,5 +49,42 @@ int main(int argc, char *argv[])
 		}
 		}
 	}
+
+	// getting numbers from arguments if needed
+	char *p;
+	long argument_value;
+	double arr[MAX_NUM];
+	if (ao_flag || 1) {
+		for (int i = optind; i < argc; i++) {
+			argument_value = strtol(argv[i], &p, 10);
+			if (p == argv[i]) {
+				fprintf(stderr, "%s bir sayi degil!\n", argv[i]);
+				return 1;
+			} else if ((argument_value == LONG_MIN ||
+			           argument_value == LONG_MAX) && errno == ERANGE) {
+				fprintf(stderr, "%s sayisi sinirlarin disinda!\n", argv[i]);
+				return 1;
+			} else if (i > MAX_NUM + optind  - 1) {
+				fprintf(stderr, "Desteklenen maksimum sayi miktarindan"
+				                "daha fazla sayi girdiniz!\nDesteklenen "
+				                "maksimum sayi miktari: %d\n", MAX_NUM);
+				return 1;
+			} else {
+				arr[i - optind] = argument_value;
+			}
+		}
+	}
+
+	if (y_flag)
+		yardim(stdout, argv[0]);
+	if (ao_flag) {
+		double ans = aritmetik_ortalama(argc - optind, arr);
+		printf("%lf\n", ans);
+	}
 	return 0;
 }
+/*
+ * ao hesaplama şeysi
+
+			fprintf(fp, "%lf\n", aritmetik_ortalama(argc - optind + 1, arr));
+ * */
