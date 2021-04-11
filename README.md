@@ -9,28 +9,38 @@
 * [İbrahim Yahya Aydınlı](https://github.com/ibrahimyahyaaydinli)
 
 
-## Derleme
+## Kurulum
 
-Gereksinimler:
+Programın Linux üzerinde çalışması tavsiye edilir!
 
-* gcc (zorunlu)
-* make (isteğe bağlı)
-* whiptail (önyüz için zorunlu)
-* bash (önyüz için zorunlu)
+### Debian Tabanlı Dağıtımlar (Ubuntu, Debian, Pop!_OS, Linux Mint...)
 
 ```bash
+sudo apt-get install -y gcc make whiptail
 git clone https://github.com/Kizlar-Grubu-Proje-Yapiyor/Olasilik-Projesi.git
 cd Olasilik-Projesi
 make build
 ```
 
-Make olmadan derlemek için (önerilmez, desteklenmiyor):
+### Red Hat Tabanlı Dağıtımlar (Fedora, Cent OS, RHEL...)
 
 ```bash
-gcc main.c yardim.c aritmetikortalama.c -I include -o olasilik
+sudo dnf install -y make gcc newt
+git clone https://github.com/Kizlar-Grubu-Proje-Yapiyor/Olasilik-Projesi.git
+cd Olasilik-Projesi
+make build
 ```
 
-**Windows'ta çalışabilir fakat desteklenmemektedir!**
+### Windows
+
+**UYARI!**  
+Windows'da stabil bir çalışma zamanı garanti değildir!  
+`gcc` derleyicisinin yüklü olması gerekmektedir!  
+Repo'yu kopyaladıktan sonra o dizinde bir `cmd` açıp aşağıdaki komutu giriniz:
+
+```cmd
+gcc src/* -I include -o olasilik
+```
 
 
 ## Kullanım
@@ -38,7 +48,7 @@ gcc main.c yardim.c aritmetikortalama.c -I include -o olasilik
 Genel kullanım:
 
 ```bash
-./olasilik --[SECENEK] [DEGER]
+./olasilik --[SECENEK] [DEGER(LER)]
 ```
 
 Bütün seçenekleri görmek veya yardım almak için:
