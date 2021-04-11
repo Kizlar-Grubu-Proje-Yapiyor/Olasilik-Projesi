@@ -16,7 +16,7 @@ Programın Linux üzerinde çalışması tavsiye edilir!
 ### Debian Tabanlı Dağıtımlar (Ubuntu, Debian, Pop!_OS, Linux Mint...)
 
 ```bash
-sudo apt-get install -y gcc make whiptail
+sudo apt-get install -y gcc make whiptail git
 git clone https://github.com/Kizlar-Grubu-Proje-Yapiyor/Olasilik-Projesi.git
 cd Olasilik-Projesi
 make build
@@ -25,7 +25,7 @@ make build
 ### Red Hat Tabanlı Dağıtımlar (Fedora, Cent OS, RHEL...)
 
 ```bash
-sudo dnf install -y make gcc newt
+sudo dnf install -y gcc make newt
 git clone https://github.com/Kizlar-Grubu-Proje-Yapiyor/Olasilik-Projesi.git
 cd Olasilik-Projesi
 make build
