@@ -5,6 +5,7 @@
 #include <errno.h>
 #include <limits.h>
 #include "yardim.h"
+#include "sinirlar.h"
 #include "aritmetikortalama.h"
 
 #ifndef MAX_NUM

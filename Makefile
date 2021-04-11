@@ -10,7 +10,7 @@ SDIR = src
 
 CFLAGS = -I$(IDIR) -lm
 
-OBJS = main.o yardim.o aritmetikortalama.o
+OBJS = main.o yardim.o sinirlar.o aritmetikortalama.o
 
 
 $(NAME): $(OBJS)
