@@ -10,7 +10,7 @@ SDIR = src
 
 CFLAGS = -I$(IDIR) -lm
 
-OBJS = main.o yardim.o sinirlar.o aritmetikortalama.o
+OBJS = main.o yardim.o sinirlar.o dosya.o aritmetikortalama.o
 
 
 $(NAME): $(OBJS)
@@ -19,7 +19,7 @@ $(NAME): $(OBJS)
 build:
 	$(CC) $(SDIR)/* $(CFLAGS) -o $(NAME)
 
-%.o: $(SDIR)/%.c $(IDIR)/%.h
+%.o: $(SDIR)/%.c $(IDIR)/%.h $(IDIR)/main.h
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 

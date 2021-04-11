@@ -8,5 +8,5 @@ void sinirlar(FILE *fp)
 	        "Maksimum dosya ismi uzunlugu: %lld\n",
 	        LLONG_MIN, LLONG_MAX,
 	        MAX_NUM,
-	        MAX_DOSYA_ISIM_UZUNLUGU);
+	        MAX_DOSYA_ISIM_UZUNLUGU - 1);
 }
