@@ -1,5 +1,15 @@
 # MAT0293 Olasılık ve İstatistik Projesi
 
+## Hızlı Erişim
+
+1. [Proje Grubu](#proje-grubu)
+1. [Kurulum](#kurulum)
+1. [Kullanım](#kullanım)
+1. [Kullanılabilir Formüller](#kullanılabilir-formüller)
+1. [Lisans](#lisans)
+
+---
+
 ## Proje Grubu
 
 * [Ali Cüneyt Çağlar](https://github.com/CuneytCaglar)
@@ -11,9 +21,9 @@
 
 ## Kurulum
 
-Programın Linux üzerinde çalışması tavsiye edilir!
+Programın Linux üzerinde çalışması tavsiye edilir.
 
-### Debian Tabanlı Dağıtımlar (Ubuntu, Debian, Pop!_OS, Linux Mint...)
+### Debian Tabanlı Linux Dağıtımları (Ubuntu, Debian, Pop!_OS, Linux Mint...)
 
 ```bash
 sudo apt-get install -y gcc make whiptail git
@@ -22,7 +32,7 @@ cd Olasilik-Projesi
 make build
 ```
 
-### Red Hat Tabanlı Dağıtımlar (Fedora, Cent OS, RHEL...)
+### Red Hat Tabanlı Linux Dağıtımları (Fedora, Cent OS, RHEL...)
 
 ```bash
 sudo dnf install -y gcc make newt
@@ -35,13 +45,30 @@ make build
 
 **UYARI!**  
 Windows'da stabil bir çalışma zamanı garanti değildir!  
-`gcc` derleyicisinin yüklü olması gerekmektedir!  
-Repo'yu kopyaladıktan sonra o dizinde bir `cmd` açıp aşağıdaki komutu giriniz:
+`gcc` derleyicisinin kullanılması zorunludur!  
+Repo'yu indirdiğiniz dizinde bir `cmd` açıp aşağıdaki komutu giriniz:
 
 ```cmd
-gcc src/* -I include -o olasilik
+gcc src/* -I include -lm -o olasilik
 ```
 
+### Mac OS X
+
+Sisteminizde `make`, `gcc`, ve `git` yüklü ise:
+
+```bash
+git clone https://github.com/Kizlar-Grubu-Proje-Yapiyor/Olasilik-Projesi.git
+cd Olasilik-Projesi
+make build
+```
+
+Eğer `make` ve `git` yüklü değil fakat `gcc` yüklü ise repoyu indirdiğiniz konumda:
+
+```bash
+gcc src/* -I include -lm -o olasilik
+```
+
+komutlarını çalıştırarak kurulumu gerçekleştirebilirsiniz. **Fakat bu yazılım Mac OS X'de test edilmemiştir!** 
 
 ## Kullanım
 
@@ -57,7 +84,7 @@ Bütün seçenekleri görmek veya yardım almak için:
 ./olasilik --yardim
 ```
 
-Aritmetik ortalama örnek kullanım:
+Aritmetik ortalama için örnek kullanım:
 
 ```bash
 # Sayılar argüman olarak verilmek istenirse:
@@ -69,7 +96,7 @@ Aritmetik ortalama örnek kullanım:
 # `girdi.txt` dosyasındaki sayıların aritmetik ortalamasını yazar
 ```
 
-Diğer formüller için `--yardım` bayrağı için bilgi alabilirsiniz.  
+Diğer formüller için `--yardim` bayrağı ile bilgi alabilirsiniz.  
 
 Ayrıca `whiptail` tabanlı önyüzü de kullanabilirsiniz:
 
