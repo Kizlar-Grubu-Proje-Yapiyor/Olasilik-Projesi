@@ -6,10 +6,9 @@
 2. [Proje Grubu](#proje-grubu)
 3. [Kullanılabilir Formüller](#kullanılabilir-formüller)
 4. [Kurulum](#kurulum)
-	1. [Debian Tabanlı Linux Dağıtımları](#debian-tabanlı-linux-dağıtımları-\(ubuntu,-debian,-pop!-os,-linux-mint...\))
-	2. [Red Hat Tabanlı Linux Dağıtımları](#red-hat-tabanlı-linuxdağıtımları-\(fedora,-cent-os,-rhel...\))
-	3. [Windows](#windows)
-	4. [Mac OS X](#mac-os-x)
+	1. [Linux](#linux)
+	2. [Windows](#windows)
+	3. [Mac OS X](#mac-os-x)
 1. [Kullanım](#kullanım)
 1. [Lisans](#lisans)
 
@@ -38,6 +37,8 @@ Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olas�
 ## Kurulum
 
 Programın Linux üzerinde çalışması tavsiye edilir. **Derleyici olarak `gcc` kullanılması zorunludur.**
+
+### Linux
 
 ### Debian Tabanlı Linux Dağıtımları (Ubuntu, Debian, Pop!_OS, Linux Mint...)
 
