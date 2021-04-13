@@ -6,6 +6,7 @@
 #include <limits.h>
 #include "yardim.h"
 #include "sinirlar.h"
+#include "interaktif.h"
 #include "dosya.h"
 #include "aritmetikortalama.h"
 

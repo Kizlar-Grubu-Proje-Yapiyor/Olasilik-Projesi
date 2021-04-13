@@ -9,6 +9,8 @@ void yardim(FILE *fp, const char *argv)
 	        "\tYardimi goruntuler\n"
 	        "-s, --sinirlar\n"
 	        "\tBagli oldugunuz sinirlari goruntuler\n"
+	        "-i, --interaktif\n"
+	        "\tGerekli sayilari interaktif modda alir\n"
 	        "-d [DOSYA], --dosya [DOSYA]\n"
 	        "\tGirdiyi belirtilen dosyadan alir\n"
 	        "\n"

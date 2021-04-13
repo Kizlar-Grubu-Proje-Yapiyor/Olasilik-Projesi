@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-	int y_flag = 0, d_flag = 0, s_flag = 0;
+	int y_flag = 0, d_flag = 0, s_flag = 0, i_flag = 0;
 	int ao_flag = 0;
 	int size;
 	long double ans = 0;
@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 	              {"yardim", no_argument, &y_flag, 1},
 	              {"dosya", required_argument, NULL, 'd'},
 	              {"sinirlar", no_argument, &s_flag, 1},
+	              {"interaktif", no_argument, &i_flag, 1},
 	              {"aritmetik-ortalama", no_argument, &ao_flag, 1},
 	              {0}};
 
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
 		                 // that 2 * 2 is equal to 5. duh!
 		                 // ok, i know why he said that. stop hating me.
 
-		int opt = getopt_long(argc, argv, "ysd:", longopts, 0);
+		int opt = getopt_long(argc, argv, "ysd:i", longopts, 0);
 		if (opt == -1) {
 			break;
 		}
@@ -49,6 +50,10 @@ int main(int argc, char *argv[])
             dosya[sizeof(dosya) - 1] = '\0';
 			break;
 		}
+		case 'i': {
+			i_flag = 1;
+			break;
+		}
 		case '?': {
 			yardim(stderr, argv[0]);
 			return 1;
@@ -57,6 +62,10 @@ int main(int argc, char *argv[])
 			break;
 		}
 		}
+	}
+
+	if (i_flag) {
+		arr = interaktif(&size);
 	}
 
 	// take numbers from the specified file
@@ -83,7 +92,7 @@ int main(int argc, char *argv[])
 	}
 
 	// getting numbers as arguments
-	if (!d_flag) {
+	if (!d_flag && !i_flag) {
 		arr = malloc(sizeof(long double) * MAX_NUM);
 		if (arr == NULL) {
 			fprintf(stderr, "Bellek yetersiz!\n");
