@@ -2,13 +2,24 @@
 
 ## Hızlı Erişim
 
-1. [Proje Grubu](#proje-grubu)
-1. [Kurulum](#kurulum)
+1. [Proje Açıklaması](#proje-açıklaması)
+2. [Proje Grubu](#proje-grubu)
+3. [Kullanılabilir Formüller](#kullanılabilir-formüller)
+4. [Kurulum](#kurulum)
+	1. [Debian Tabanlı Linux Dağıtımları](#debian-tabanlı-linux-dağıtımları-(ubuntu,-debian,-pop!-os,-linux-mint...))
+	2. [Red Hat Tabanlı Linux Dağıtımları](#red-hat-tabanlı-linuxdağıtımları-(fedora,-cent-os,-rhel...))
+	3. [Windows](#windows)
+	4. [Mac OS X](#mac-os-x)
 1. [Kullanım](#kullanım)
-1. [Kullanılabilir Formüller](#kullanılabilir-formüller)
 1. [Lisans](#lisans)
 
 ---
+
+
+## Proje Açıklaması
+
+Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olasılık ve istatistik projelerinize entegre edebileceğiniz harici bir programdır. Proje `C` dili ile yazılmıştır. [GNU getopt](https://www.gnu.org/software/libc/manual/html_node/Getopt.html) kütüphanesi kullanılmıştır.
+
 
 ## Proje Grubu
 
@@ -19,9 +30,14 @@
 * [İbrahim Yahya Aydınlı](https://github.com/ibrahimyahyaaydinli)
 
 
+### Kullanılabilir Formüller
+
+1. Aritmetik Ortalama
+
+
 ## Kurulum
 
-Programın Linux üzerinde çalışması tavsiye edilir.
+Programın Linux üzerinde çalışması tavsiye edilir. **Derleyici olarak `gcc` kullanılması zorunludur.**
 
 ### Debian Tabanlı Linux Dağıtımları (Ubuntu, Debian, Pop!_OS, Linux Mint...)
 
@@ -44,8 +60,7 @@ make build
 ### Windows
 
 **UYARI!**  
-Windows'da stabil bir çalışma zamanı garanti değildir!  
-`gcc` derleyicisinin kullanılması zorunludur!  
+Windows'ta stabil bir çalışma zamanı garanti değildir!  
 Repo'yu indirdiğiniz dizinde bir `cmd` açıp aşağıdaki komutu giriniz:
 
 ```cmd
@@ -68,7 +83,8 @@ Eğer `make` ve `git` yüklü değil fakat `gcc` yüklü ise repoyu indirdiğini
 gcc src/* -I include -lm -o olasilik
 ```
 
-komutlarını çalıştırarak kurulumu gerçekleştirebilirsiniz. **Fakat bu yazılım Mac OS X'de test edilmemiştir!** 
+komutlarını çalıştırarak kurulumu gerçekleştirebilirsiniz. **Fakat bu yazılım Mac OS X'te test edilmemiştir!** 
+
 
 ## Kullanım
 
@@ -103,11 +119,6 @@ Ayrıca `whiptail` tabanlı önyüzü de kullanabilirsiniz:
 ```bash
 ./olasilik-gui
 ```
-
-
-### Kullanılabilir Formüller
-
-1. Aritmetik Ortalama
 
 
 ## Lisans
