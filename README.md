@@ -57,11 +57,31 @@ Bütün seçenekleri görmek veya yardım almak için:
 ./olasilik --yardim
 ```
 
-Ayrıca `whiptail` tabanlı önyüzü de kullanabilirsiniz
+Aritmetik ortalama örnek kullanım:
+
+```bash
+# Sayılar argüman olarak verilmek istenirse:
+./olasilik --aritmetik-ortalama 12 13 800 58624
+# Çıktı olarak `14862.250000` yazar
+
+# Sayılar dosyadan okunmak istenirse:
+./olasilik --dosya girdi.txt --aritmetik-ortalama
+# `girdi.txt` dosyasındaki sayıların aritmetik ortalamasını yazar
+```
+
+Diğer formüller için `--yardım` bayrağı için bilgi alabilirsiniz.  
+
+Ayrıca `whiptail` tabanlı önyüzü de kullanabilirsiniz:
 
 ```bash
 ./olasilik-gui
-``` 
+```
+
+
+### Kullanılabilir Formüller
+
+1. Aritmetik Ortalama
+
 
 ## Lisans
 
