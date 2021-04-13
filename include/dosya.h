@@ -3,4 +3,4 @@
 # include "main.h"
 #endif
 
-double *dosyadan_oku(int *size, FILE *fp);
+long double *dosyadan_oku(int *size, FILE *fp);

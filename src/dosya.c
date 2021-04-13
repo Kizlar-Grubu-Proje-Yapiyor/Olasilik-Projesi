@@ -1,10 +1,10 @@
 #include "dosya.h"
 
-double *dosyadan_oku(int *size, FILE *fp)
+long double *dosyadan_oku(int *size, FILE *fp)
 {
 	int i = 0;
-	double *arr;
-	arr = malloc(sizeof(double) * MAX_NUM);
+	long double *arr;
+	arr = malloc(sizeof(long double) * MAX_NUM);
 	if (arr == NULL) {
 		fprintf(stderr, "Bellek yetersiz!\n");
 		exit(1);
@@ -18,7 +18,7 @@ double *dosyadan_oku(int *size, FILE *fp)
 			fprintf(stderr, "Bir hata oldu!\n");
 			exit(1);
 		}
-		arr[i] = (double)tmp;
+		arr[i] = (long double)tmp;
 		i++;
 	}
 	*size = i;

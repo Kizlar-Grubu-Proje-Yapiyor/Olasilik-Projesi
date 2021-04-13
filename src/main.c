@@ -5,8 +5,8 @@ int main(int argc, char *argv[])
 	int y_flag = 0, d_flag = 0, s_flag = 0;
 	int ao_flag = 0;
 	int size;
-	double ans = 0;
-	double *arr;
+	long double ans = 0;
+	long double *arr;
 	char dosya[MAX_DOSYA_ISIM_UZUNLUGU];
 	FILE *fp = stdout;
 
@@ -84,27 +84,27 @@ int main(int argc, char *argv[])
 
 	// getting numbers as arguments
 	if (!d_flag) {
-		arr = malloc(sizeof(double) * MAX_NUM);
+		arr = malloc(sizeof(long double) * MAX_NUM);
 		if (arr == NULL) {
 			fprintf(stderr, "Bellek yetersiz!\n");
 			exit(1);
 		}
 		char *p;
-		double argument_value;
+		long double argument_value;
 		for (int i = optind; i < argc; i++) {
 			argument_value = strtol(argv[i], &p, 10);
 			if (p == argv[i]) {
 				fprintf(stderr, "%s bir sayi degil!\n", argv[i]);
 				return 1;
-			} else if ((argument_value == LONG_MIN ||
-					   argument_value == LONG_MAX) && errno == ERANGE) {
+			} else if ((argument_value == LLONG_MIN ||
+					   argument_value == LLONG_MAX) && errno == ERANGE) {
 				fprintf(stderr, "%s sayisi sinirlarin disinda!\n", argv[i]);
 				sinirlar(stderr);
 				return 1;
 			} else if (i > MAX_NUM + optind  - 1) {
 				fprintf(stderr, "Desteklenen maksimum sayi miktarindan"
 								"daha fazla sayi girdiniz!\nDesteklenen "
-								"maksimum sayi miktari: %d\n", MAX_NUM);
+								"maksimum sayi miktari: %lld\n", MAX_NUM);
 				sinirlar(stderr);
 				return 1;
 				} else {
@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
 	// action!
 	if (ao_flag) {
 		ans = aritmetik_ortalama(size, arr);
-		printf("%lf\n", ans);
+		printf("%llf\n", ans);
 	}
 
 	free(arr);

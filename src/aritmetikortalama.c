@@ -4,13 +4,11 @@
 
 #include "aritmetikortalama.h"
 
-double aritmetik_ortalama(int size, double *arr)
+long double aritmetik_ortalama(int size, long double *arr)
 {
-	double ans = 0;
+	long double ans = 0;
 	for (int i = 0; i < size; i++) {
-		ans += (double)arr[i];
+		ans += (long double)arr[i] / size;
 	}
-	if (size <= 0)
-		return 0;
-	return ans / size;
+	return ans;
 }

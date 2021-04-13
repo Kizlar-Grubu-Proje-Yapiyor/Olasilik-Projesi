@@ -1,3 +1,3 @@
 #include <stdio.h>
 
-void yardim(FILE *, const char *);
+void yardim(FILE *fp, const char *argv);
