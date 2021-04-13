@@ -14,5 +14,5 @@
 #endif
 
 #ifndef MAX_DOSYA_ISIM_UZUNLUGU
-# define MAX_DOSYA_ISIM_UZUNLUGU 3
+# define MAX_DOSYA_ISIM_UZUNLUGU 256
 #endif
