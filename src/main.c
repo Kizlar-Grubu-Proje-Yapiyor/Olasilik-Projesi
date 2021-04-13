@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
 		char *p;
 		long double argument_value;
 		for (int i = optind; i < argc; i++) {
-			argument_value = strtol(argv[i], &p, 10);
+			argument_value = (long double)strtoll(argv[i], &p, 10);
 			if (p == argv[i]) {
 				fprintf(stderr, "%s bir sayi degil!\n", argv[i]);
 				return 1;
