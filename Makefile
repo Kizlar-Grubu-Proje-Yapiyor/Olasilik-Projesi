@@ -11,7 +11,7 @@ SDIR = src
 CFLAGS = -I$(IDIR) -lm
 
 OBJS = main.o yardim.o sinirlar.o interaktif.o dosya.o \
-       aritmetikortalama.o
+       aritmetikortalama.o medyan.o
 
 
 $(NAME): $(OBJS)

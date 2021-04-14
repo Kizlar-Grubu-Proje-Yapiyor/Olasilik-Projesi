@@ -9,6 +9,7 @@
 #include "interaktif.h"
 #include "dosya.h"
 #include "aritmetikortalama.h"
+#include "medyan.h"
 
 #ifndef MAX_NUM
 # define MAX_NUM 100000
