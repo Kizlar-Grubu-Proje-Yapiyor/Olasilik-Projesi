@@ -18,5 +18,7 @@ void yardim(FILE *fp, const char *argv)
 	        "--aritmetik-ortalama [DEGER(LER)]\n"
 	        "\tVerilen sayilarin aritmetik ortalamasini hesaplar\n"
 	        "--medyan [DEGER(LER)]\n"
-	        "\tVerilen sayilarin medyanini (ortanca) hesaplar\n");
+	        "\tVerilen sayilarin medyanini (ortanca) hesaplar\n"
+	        "--mod [DEGER(LER)]\n"
+	        "\tVerilen sayilarin modunu hesaplar\n");
 }

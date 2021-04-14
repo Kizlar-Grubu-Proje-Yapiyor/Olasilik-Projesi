@@ -17,7 +17,7 @@
 
 ## Proje Açıklaması
 
-Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olasılık ve istatistik projelerinize entegre edebileceğiniz harici bir programdır. Proje `C` dili ile yazılmıştır. [GNU getopt](https://www.gnu.org/software/libc/manual/html_node/Getopt.html) kütüphanesi kullanılmıştır.
+Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olasılık ve istatistik projelerinize entegre edebileceğiniz harici bir programdır. Proje `C` dili ile yazılmıştır. [GNU getopt](https://www.gnu.org/software/libc/manual/html_node/Getopt.html) kütüphanesi kullanılmıştır. Linux üzerinde çalışması için tasarlanmıştır.
 
 
 ## Proje Grubu
@@ -37,7 +37,9 @@ Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olas�
 
 ## Kurulum
 
-Programın Linux üzerinde çalışması tavsiye edilir. **Derleyici olarak `gcc` kullanılması zorunludur.**
+Programın Linux üzerinde çalışması tavsiye edilir. Mac OS X veya Windows üzerinden çalıştırıldığında beklenilen sonucu alamayabilirsiniz.  
+
+**Derleyici olarak `gcc` kullanılması zorunludur.**
 
 ### Linux
 
@@ -62,7 +64,8 @@ make build
 ### Windows
 
 **UYARI!**  
-Windows'ta stabil bir çalışma zamanı garanti değildir!  
+Windows'ta stabil bir çalışma zamanı garanti değildir!
+
 Repo'yu indirdiğiniz dizinde bir `cmd` açıp aşağıdaki komutu giriniz:
 
 ```cmd
@@ -70,6 +73,9 @@ gcc src/* -I include -lm -o olasilik
 ```
 
 ### Mac OS X
+
+**UYARI!**  
+Mac OS X'te stabil bir çalışma zamanı garanti değildir!  
 
 Sisteminizde `make`, `gcc`, ve `git` yüklü ise:
 
@@ -85,7 +91,7 @@ Eğer `make` ve `git` yüklü değil fakat `gcc` yüklü ise repoyu indirdiğini
 gcc src/* -I include -lm -o olasilik
 ```
 
-komutlarını çalıştırarak kurulumu gerçekleştirebilirsiniz. **Fakat bu yazılım Mac OS X'te test edilmemiştir!** 
+komutlarını çalıştırarak kurulumu gerçekleştirebilirsiniz.
 
 
 ## Kullanım

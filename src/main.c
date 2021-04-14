@@ -11,11 +11,12 @@
 #include "dosya.h"
 #include "aritmetikortalama.h"
 #include "medyan.h"
+#include "mod.h"
 
 int main(int argc, char *argv[])
 {
 	int y_flag = 0, d_flag = 0, s_flag = 0, i_flag = 0;
-	int ao_flag = 0, m_flag = 0;
+	int ao_flag = 0, m_flag = 0, mod_flag = 0;
 	int size;
 	long double ans = 0;
 	long double *arr;
@@ -36,6 +37,7 @@ int main(int argc, char *argv[])
 	              {"interaktif", no_argument, &i_flag, 1},
 	              {"aritmetik-ortalama", no_argument, &ao_flag, 1},
 	              {"medyan", no_argument, &m_flag, 1},
+	              {"mod", no_argument, &mod_flag, 1},
 	              {0}};
 
 	// parse command line arguments
@@ -143,6 +145,10 @@ int main(int argc, char *argv[])
 	}
 	if (m_flag) {
 		ans = medyan(size, arr);
+		printf("%llf\n", ans);
+	}
+	if (mod_flag) {
+		ans = mod(size, arr);
 		printf("%llf\n", ans);
 	}
 
