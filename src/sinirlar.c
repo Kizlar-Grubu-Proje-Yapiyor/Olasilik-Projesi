@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <limits.h>
+#include "main.h"
 #include "sinirlar.h"
 
 void sinirlar(FILE *fp)

@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "main.h"
 #include "dosya.h"
 
 long double *dosyadan_oku(int *size, FILE *fp)

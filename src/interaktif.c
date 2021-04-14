@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "interaktif.h"
 
 long double *interaktif(int *size)

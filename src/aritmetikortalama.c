@@ -1,7 +1,3 @@
-/*
- * Author: Ceyhun Sen
- * */
-
 #include "aritmetikortalama.h"
 
 long double aritmetik_ortalama(int size, long double *arr)

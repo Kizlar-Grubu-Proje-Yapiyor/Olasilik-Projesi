@@ -13,6 +13,7 @@ CFLAGS = -I$(IDIR) -lm
 OBJS = main.o yardim.o sinirlar.o interaktif.o dosya.o \
        aritmetikortalama.o medyan.o
 
+HDR = $(IDIR)/main.h $(IDIR)/algoritmalar.h
 
 $(NAME): $(OBJS)
 	$(CC) $^ -o $@
@@ -20,7 +21,7 @@ $(NAME): $(OBJS)
 build:
 	$(CC) $(SDIR)/* $(CFLAGS) -o $(NAME)
 
-%.o: $(SDIR)/%.c $(IDIR)/%.h $(IDIR)/main.h
+%.o: $(SDIR)/%.c $(IDIR)/%.h $(HDR)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 

@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "yardim.h"
 
 void yardim(FILE *fp, const char *argv)

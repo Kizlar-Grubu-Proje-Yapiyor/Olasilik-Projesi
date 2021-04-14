@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include "algoritmalar.h"
 #include "medyan.h"
 
 long double medyan(int size, long double *arr)
