@@ -1,4 +1,5 @@
 #include <limits.h>
+#include <float.h>
 #include "mod.h"
 #include "algoritmalar.h"
 
@@ -6,8 +7,9 @@
 double_t mod(int size, double_t *arr)
 {
 	ldsort(arr, size);
-	double_t mx = (double_t)LLONG_MIN;
-	int cnt = 0, lasti = 0, ans = arr[0];
+	int mx = INT_MIN;
+	int cnt = 0, lasti = 0;
+	double_t ans = arr[0];
 	for (int i = 1; i < size; i++) {
 		if (arr[i] == arr[i - 1]) {
 			continue;

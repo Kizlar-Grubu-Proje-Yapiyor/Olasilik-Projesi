@@ -14,7 +14,7 @@ double_t *dosyadan_oku(int *size, FILE *fp)
 	}
 	double_t tmp;
 	while (1) {
-		fscanf(fp, "%lld", &tmp);
+		fscanf(fp, "%Lf", &tmp);
 		if (feof(fp))
 			break;
 		if (ferror(fp)) {
