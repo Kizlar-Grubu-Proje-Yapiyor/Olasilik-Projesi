@@ -1,10 +1,10 @@
 #include "aritmetikortalama.h"
 
-long double aritmetik_ortalama(int size, long double *arr)
+double_t aritmetik_ortalama(int size, double_t *arr)
 {
-	long double ans = 0;
+	double_t ans = 0;
 	for (int i = 0; i < size; i++) {
-		ans += arr[i] / (long double)size;
+		ans += arr[i] / (double_t)size;
 	}
 	return ans;
 }

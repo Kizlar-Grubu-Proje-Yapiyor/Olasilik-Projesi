@@ -1,1 +1,3 @@
-long double aritmetik_ortalama(int size, long double *arr);
+#include "main.h"
+
+double_t aritmetik_ortalama(int size, double_t *arr);

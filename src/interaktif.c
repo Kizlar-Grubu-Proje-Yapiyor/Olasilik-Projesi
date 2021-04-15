@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include "interaktif.h"
 
-long double *interaktif(int *size)
+double_t *interaktif(int *size)
 {
-	long double *arr;
+	double_t *arr;
 	long long tmp;
 	printf("Diziniz kac elemanli: ");
 	scanf("%d", size);
-	arr = (long double *)malloc(sizeof(long double) * (*size));
+	arr = (double_t *)malloc(sizeof(double_t) * (*size));
 	if (!arr) {
 		fprintf(stderr, "Bellek yetersiz!\n");
 		exit(1);
@@ -16,7 +16,7 @@ long double *interaktif(int *size)
 	printf("%d adet sayiyi giriniz: ", *size);
 	for (int i = 0; i < (*size); i++) {
 		scanf("%lld", &tmp);
-		arr[i] = (long double)tmp;
+		arr[i] = (double_t)tmp;
 	}
 	return arr;
 }

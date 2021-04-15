@@ -18,8 +18,8 @@ int main(int argc, char *argv[])
 	int y_flag = 0, d_flag = 0, s_flag = 0, i_flag = 0;
 	int ao_flag = 0, m_flag = 0, mod_flag = 0;
 	int size;
-	long double ans = 0;
-	long double *arr;
+	double_t ans = 0;
+	double_t *arr;
 	char dosya[MAX_DOSYA_ISIM_UZUNLUGU];
 	FILE *fp = stdout;
 
@@ -108,15 +108,15 @@ int main(int argc, char *argv[])
 
 	// getting numbers as arguments
 	if (!d_flag && !i_flag) {
-		arr = malloc(sizeof(long double) * MAX_NUM);
+		arr = malloc(sizeof(double_t) * MAX_NUM);
 		if (arr == NULL) {
 			fprintf(stderr, "Bellek yetersiz!\n");
 			exit(1);
 		}
 		char *p;
-		long double argument_value;
+		double_t argument_value;
 		for (int i = optind; i < argc; i++) {
-			argument_value = (long double)strtoll(argv[i], &p, 10);
+			argument_value = (double_t)strtoll(argv[i], &p, 10);
 			if (p == argv[i]) {
 				fprintf(stderr, "%s bir sayi degil!\n", argv[i]);
 				return 1;
@@ -141,15 +141,15 @@ int main(int argc, char *argv[])
 	// action!
 	if (ao_flag) {
 		ans = aritmetik_ortalama(size, arr);
-		printf("%llf\n", ans);
+		printf("%Lf\n", ans);
 	}
 	if (m_flag) {
 		ans = medyan(size, arr);
-		printf("%llf\n", ans);
+		printf("%Lf\n", ans);
 	}
 	if (mod_flag) {
 		ans = mod(size, arr);
-		printf("%llf\n", ans);
+		printf("%Lf\n", ans);
 	}
 
 	free(arr);

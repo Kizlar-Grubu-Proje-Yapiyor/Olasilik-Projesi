@@ -1,1 +1,3 @@
-long double mod(int size, long double *arr);
+#include "main.h"
+
+double_t mod(int size, double_t *arr);

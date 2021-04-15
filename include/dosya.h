@@ -1,1 +1,3 @@
-long double *dosyadan_oku(int *size, FILE *fp);
+#include "main.h"
+
+double_t *dosyadan_oku(int *size, FILE *fp);

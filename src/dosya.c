@@ -3,16 +3,16 @@
 #include "main.h"
 #include "dosya.h"
 
-long double *dosyadan_oku(int *size, FILE *fp)
+double_t *dosyadan_oku(int *size, FILE *fp)
 {
 	int i = 0;
-	long double *arr;
-	arr = malloc(sizeof(long double) * MAX_NUM);
+	double_t *arr;
+	arr = malloc(sizeof(double_t) * MAX_NUM);
 	if (arr == NULL) {
 		fprintf(stderr, "Bellek yetersiz!\n");
 		exit(1);
 	}
-	long long tmp;
+	double_t tmp;
 	while (1) {
 		fscanf(fp, "%lld", &tmp);
 		if (feof(fp))
@@ -21,7 +21,7 @@ long double *dosyadan_oku(int *size, FILE *fp)
 			fprintf(stderr, "Bir hata oldu!\n");
 			exit(1);
 		}
-		arr[i] = (long double)tmp;
+		arr[i] = (double_t)tmp;
 		i++;
 	}
 	*size = i;

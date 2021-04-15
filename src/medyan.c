@@ -2,7 +2,7 @@
 #include "algoritmalar.h"
 #include "medyan.h"
 
-long double medyan(int size, long double *arr)
+double_t medyan(int size, double_t *arr)
 {
 	ldsort(arr, size);
 	return (size % 2)? arr[size / 2]:

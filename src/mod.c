@@ -3,10 +3,10 @@
 #include "algoritmalar.h"
 
 // i am too lazy to write a dictionary lib, so here is a really bad algorithm
-long double mod(int size, long double *arr)
+double_t mod(int size, double_t *arr)
 {
 	ldsort(arr, size);
-	long double mx = (long double)LLONG_MIN;
+	double_t mx = (double_t)LLONG_MIN;
 	int cnt = 0, lasti = 0, ans = arr[0];
 	for (int i = 1; i < size; i++) {
 		if (arr[i] == arr[i - 1]) {

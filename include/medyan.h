@@ -1,1 +1,3 @@
-long double medyan(int size, long double *arr);
+#include "main.h"
+
+double_t medyan(int size, double_t *arr);
