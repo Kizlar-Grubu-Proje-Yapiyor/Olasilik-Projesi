@@ -20,5 +20,5 @@ void yardim(FILE *fp, const char *argv)
 	        "--medyan [DEGER(LER)]\n"
 	        "\tVerilen sayilarin medyanini (ortanca) hesaplar\n"
 	        "--mod [DEGER(LER)]\n"
-	        "\tVerilen sayilarin modunu hesaplar\n");
+	        "\tVerilen sayilarin modunu hesaplar\n", argv);
 }
