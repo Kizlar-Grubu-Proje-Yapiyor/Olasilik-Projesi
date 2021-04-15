@@ -22,7 +22,7 @@ build:
 	$(CC) $(SDIR)/* $(CFLAGS) -o $(NAME)
 
 %.o: $(SDIR)/%.c $(IDIR)/%.h $(HDR)
-	$(CC) -c -o $@ $< $(CFLAGS)
+	$(CC) -c -o $@ $< $(CFLAGS) -Wall
 
 
 .PHONY: clean
