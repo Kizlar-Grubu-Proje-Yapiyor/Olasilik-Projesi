@@ -13,9 +13,10 @@ main()
 		SECIM=$(whiptail --title "Olasılık ve İstatistik" \
 		--ok-button "Seç" --cancel-button "Çıkış" \
 		--menu "Seçeneklerden birini seçiniz" \
-		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 2 \
+		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 3 \
 		"1" "Aritmetik Ortalama" \
-		"2" "Geometrik Ortalama")
+		"2" "Medyan" \
+		"3" "Mod")
 		
 		if [ $? = 1 ]
 		then
@@ -32,17 +33,40 @@ main()
 				continue
 			fi
 
-			CEVAP=$(./olasilik --dosya "whiptail-girdi.txt" --aritmetik-ortalama)
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --aritmetik-ortalama)
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
 			${WINDOW_WIDTH} --title "Aritmetik Ortalama" 3>&1 1>&2 2>&3
 
-		# Geometrik Ortalama
+		# Medyan
 		elif [ ${SECIM} -eq 2 ]
 		then
-			whiptail --msgbox "Şuanlık desteklenmiyor" 8 39 --title \
-			"Geometrik Ortalama" 3>&1 1>&2 2>&3
+			sayi_al
 
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --medyan)
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Medyan" 3>&1 1>&2 2>&3
+
+		# Mod
+		elif [ ${SECIM} -eq 3 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --mod)
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Mod" 3>&1 1>&2 2>&3
 		fi
 	done
 }
@@ -53,7 +77,7 @@ sayi_al()
 	     ${WINDOW_HEIGHT} ${WINDOW_WIDTH} --title "Dizi girin:" \
 	     --ok-button "Hesapla" --cancel-button "Vazgeç" \
          3>&1 1>&2 2>&3)
-	echo ${DIZI[@]} > whiptail-girdi.txt
+	echo ${DIZI[@]} > "whiptail-girdi.txt"
 }
 
 main
