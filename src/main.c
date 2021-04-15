@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
 		char *p;
 		double_t argument_value;
 		for (int i = optind; i < argc; i++) {
-			argument_value = (double_t)strtoll(argv[i], &p, 10);
+			argument_value = (double_t)strtold(argv[i], &p);
 			if (p == argv[i]) {
 				fprintf(stderr, "%s bir sayi degil!\n", argv[i]);
 				return 1;
