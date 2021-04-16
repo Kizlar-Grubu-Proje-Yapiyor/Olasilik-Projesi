@@ -1,4 +1,3 @@
-#include "main.h"
 #include <math.h>
 
 static void d_sort(double *arr, int size);
