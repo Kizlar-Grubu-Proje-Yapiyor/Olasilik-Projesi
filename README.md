@@ -36,6 +36,7 @@ Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olas�
 3. Mod
 4. Harmonik Ortalama
 5. Ortalama Sapma
+6. Geometrik Ortalama
 
 
 ## Kurulum

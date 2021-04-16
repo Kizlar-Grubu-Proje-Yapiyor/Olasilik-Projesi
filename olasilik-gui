@@ -14,12 +14,13 @@ main()
 		SECIM=$(whiptail --title "Olasılık ve İstatistik" \
 		--ok-button "Seç" --cancel-button "Çıkış" \
 		--menu "Seçeneklerden birini seçiniz" \
-		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 5 \
+		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 6 \
 		"1" "Aritmetik Ortalama" \
 		"2" "Medyan" \
 		"3" "Mod" \
 		"4" "Harmonik Ortalama" \
 		"5" "Ortalama Sapma" \
+		"6" "Geometrik Ortalama" \
 		)
 		
 		if [ $? = 1 ]
@@ -101,6 +102,21 @@ main()
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
 			${WINDOW_WIDTH} --title "Ortalama Sapma" 3>&1 1>&2 2>&3
+
+		# Ortalama Sapma
+		elif [ ${SECIM} -eq 6 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --geometrik-ortalama)
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Geometrik Ortalama" 3>&1 1>&2 2>&3
 		fi
 	done
 }
