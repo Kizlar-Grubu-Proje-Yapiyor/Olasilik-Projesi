@@ -5,7 +5,7 @@
 double_t *interaktif(int *size)
 {
 	double_t *arr;
-	long long tmp;
+	double_t tmp;
 	printf("Diziniz kac elemanli: ");
 	scanf("%d", size);
 	arr = (double_t *)malloc(sizeof(double_t) * (*size));
@@ -15,8 +15,8 @@ double_t *interaktif(int *size)
 	}
 	printf("%d adet sayiyi giriniz: ", *size);
 	for (int i = 0; i < (*size); i++) {
-		scanf("%lld", &tmp);
-		arr[i] = (double_t)tmp;
+		scanf("%Lf", &tmp);
+		arr[i] = tmp;
 	}
 	return arr;
 }
