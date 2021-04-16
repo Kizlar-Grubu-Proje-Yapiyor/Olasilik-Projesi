@@ -126,12 +126,12 @@ int main(int argc, char *argv[])
 		char *p;
 		double argument_value;
 		for (int i = optind; i < argc; i++) {
-			argument_value = (double)strtold(argv[i], &p);
+			argument_value = (double)strtod(argv[i], &p);
 			if (p == argv[i]) {
 				fprintf(stderr, "%s bir sayi degil!\n", argv[i]);
 				return 1;
-			} else if ((argument_value == LLONG_MIN ||
-					   argument_value == LLONG_MAX) && errno == ERANGE) {
+			} else if ((argument_value == INT_MIN ||
+					   argument_value == INT_MAX) && errno == ERANGE) {
 				fprintf(stderr, "%s sayisi sinirlarin disinda!\n", argv[i]);
 				sinirlar(stderr);
 				return 1;
@@ -155,7 +155,7 @@ int main(int argc, char *argv[])
 		printf("%lf\n", ans);
 	}
 	if (ho_flag) {
-		ans = harmonikortalama(size, arr);
+		ans = harmonik_ortalama(size, arr);
 		printf("%lf\n", ans);
 	}
 	if (go_flag) {
@@ -171,7 +171,7 @@ int main(int argc, char *argv[])
 		printf("%lf\n", ans);
 	}
 	if (osap_flag) {
-		ans = ortalamasapma(size, arr);
+		ans = ortalama_sapma(size, arr);
 		printf("%lf\n", ans);
 	}
 

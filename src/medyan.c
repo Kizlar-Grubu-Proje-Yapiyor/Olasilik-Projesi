@@ -4,7 +4,7 @@
 
 double medyan(int size, double *arr)
 {
-	ldsort(arr, size);
+	d_sort(arr, size);
 	return (size % 2)? arr[size / 2]:
 	(arr[size / 2 - 1] + arr[size / 2]) / 2;
 }

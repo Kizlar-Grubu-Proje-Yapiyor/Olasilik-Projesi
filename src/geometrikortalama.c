@@ -7,5 +7,5 @@ double geometrik_ortalama(int size, double *arr)
 	for (int i = 0; i < size; i++) {
 		tmp *= arr[i];
 	}
-	return ld_root(tmp, size);
+	return d_root(tmp, size);
 }

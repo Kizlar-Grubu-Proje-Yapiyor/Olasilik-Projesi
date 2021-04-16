@@ -3,10 +3,9 @@
 #include "mod.h"
 #include "algoritmalar.h"
 
-// i am too lazy to write a dictionary lib, so here is a really bad algorithm
 double mod(int size, double *arr)
 {
-	ldsort(arr, size);
+	d_sort(arr, size);
 	int mx = INT_MIN;
 	int cnt = 0, lasti = 0;
 	double ans = arr[0];

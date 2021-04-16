@@ -1,3 +1,3 @@
 #include "main.h"
 
-double ortalamasapma(int size, double *arr);
+double ortalama_sapma(int size, double *arr);

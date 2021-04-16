@@ -1,3 +1,3 @@
 #include "main.h"
 
-double harmonikortalama(int size, double *arr);
+double harmonik_ortalama(int size, double *arr);

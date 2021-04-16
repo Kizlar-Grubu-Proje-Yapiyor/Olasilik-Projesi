@@ -1,6 +1,6 @@
 #include "harmonikortalama.h"
 
-double harmonikortalama(int size, double *arr)
+double harmonik_ortalama(int size, double *arr)
 {
 	double tmp = 0;
 	for (int i = 0; i < size; i++) {

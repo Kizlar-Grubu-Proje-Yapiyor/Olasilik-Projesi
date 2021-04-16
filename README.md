@@ -41,8 +41,6 @@ Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olas�
 
 ## Kurulum
 
-Programın Linux üzerinde çalışması tavsiye edilir. Mac OS X veya Windows üzerinden çalıştırıldığında beklenilen sonucu alamayabilirsiniz.  
-
 **Derleyici olarak `gcc` kullanılması zorunludur.**
 
 ### Linux
@@ -67,9 +65,6 @@ make build
 
 ### Windows
 
-**UYARI!**  
-Windows'ta stabil bir çalışma zamanı garanti değildir!
-
 Repo'yu indirdiğiniz dizinde bir `cmd` açıp aşağıdaki komutu giriniz:
 
 ```cmd
@@ -77,9 +72,6 @@ gcc src/* -I include -lm -o olasilik
 ```
 
 ### Mac OS X
-
-**UYARI!**  
-Mac OS X'te stabil bir çalışma zamanı garanti değildir!  
 
 Sisteminizde `make`, `gcc`, ve `git` yüklü ise:
 
@@ -94,8 +86,6 @@ Eğer `make` ve `git` yüklü değil fakat `gcc` yüklü ise repoyu indirdiğini
 ```bash
 gcc src/* -I include -lm -o olasilik
 ```
-
-komutlarını çalıştırarak kurulumu gerçekleştirebilirsiniz.
 
 
 ## Kullanım
@@ -122,11 +112,15 @@ Aritmetik ortalama için örnek kullanım:
 # Sayılar dosyadan okunmak istenirse:
 ./olasilik --dosya girdi.txt --aritmetik-ortalama
 # `girdi.txt` dosyasındaki sayıların aritmetik ortalamasını yazar
+
+# Sayılar stdin'den okunmak istenirse
+./olasilik --interaktif --aritmetik-ortalama
+# stdin'den okunan sayıların aritmetik ortalamasını yazar
 ```
 
 Diğer formüller için `--yardim` bayrağı ile bilgi alabilirsiniz.  
 
-Ayrıca `whiptail` tabanlı önyüzü de kullanabilirsiniz:
+Ayrıca sisteminizde `whiptail` ve `bash` yüklü ise önyüzü de kullanabilirsiniz:
 
 ```bash
 ./olasilik-gui
