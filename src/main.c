@@ -22,8 +22,8 @@ int main(int argc, char *argv[])
 	int ao_flag = 0, m_flag = 0, mod_flag = 0, ho_flag = 0;
 	int osap_flag = 0, go_flag = 0;
 	int size;
-	double_t ans = 0;
-	double_t *arr;
+	double ans = 0;
+	double *arr;
 	char dosya[MAX_DOSYA_ISIM_UZUNLUGU];
 	FILE *fp = stdout;
 
@@ -118,15 +118,15 @@ int main(int argc, char *argv[])
 
 	// take numbers as arguments
 	if (!d_flag && !i_flag) {
-		arr = malloc(sizeof(double_t) * MAX_NUM);
+		arr = malloc(sizeof(double) * MAX_NUM);
 		if (arr == NULL) {
 			fprintf(stderr, "Bellek yetersiz!\n");
 			exit(1);
 		}
 		char *p;
-		double_t argument_value;
+		double argument_value;
 		for (int i = optind; i < argc; i++) {
-			argument_value = (double_t)strtold(argv[i], &p);
+			argument_value = (double)strtold(argv[i], &p);
 			if (p == argv[i]) {
 				fprintf(stderr, "%s bir sayi degil!\n", argv[i]);
 				return 1;
@@ -152,27 +152,27 @@ int main(int argc, char *argv[])
 	// action!
 	if (ao_flag) {
 		ans = aritmetik_ortalama(size, arr);
-		printf("%Lf\n", ans);
+		printf("%lf\n", ans);
 	}
 	if (m_flag) {
 		ans = medyan(size, arr);
-		printf("%Lf\n", ans);
+		printf("%lf\n", ans);
 	}
 	if (mod_flag) {
 		ans = mod(size, arr);
-		printf("%Lf\n", ans);
+		printf("%lf\n", ans);
 	}
 	if (ho_flag) {
 		ans = harmonikortalama(size, arr);
-		printf("%Lf\n", ans);
+		printf("%lf\n", ans);
 	}
 	if (osap_flag) {
 		ans = ortalamasapma(size, arr);
-		printf("%Lf\n", ans);
+		printf("%lf\n", ans);
 	}
 	if (go_flag) {
 		ans = geometrik_ortalama(size, arr);
-		printf("%Lf\n", ans);
+		printf("%lf\n", ans);
 	}
 
 

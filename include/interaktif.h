@@ -1,3 +1,3 @@
 #include "main.h"
 
-double_t *interaktif(int *size);
+double *interaktif(int *size);

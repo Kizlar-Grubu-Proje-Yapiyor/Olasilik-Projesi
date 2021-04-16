@@ -1,9 +1,9 @@
 #include "geometrikortalama.h"
 #include "algoritmalar.h"
 
-double_t geometrik_ortalama(int size, double_t *arr)
+double geometrik_ortalama(int size, double *arr)
 {
-	double_t tmp = 1;
+	double tmp = 1;
 	for (int i = 0; i < size; i++) {
 		tmp *= arr[i];
 	}

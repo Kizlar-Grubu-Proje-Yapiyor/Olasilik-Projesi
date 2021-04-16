@@ -17,7 +17,7 @@ OBJS = main.o yardim.o sinirlar.o interaktif.o dosya.o \
 HDR = $(IDIR)/main.h $(IDIR)/algoritmalar.h
 
 $(NAME): $(OBJS)
-	$(CC) $^ -o $@
+	$(CC) $^ $(CFLAGS) -o $@
 
 build:
 	$(CC) $(SDIR)/* $(CFLAGS) -o $(NAME)
