@@ -14,12 +14,13 @@
 #include "mod.h"
 #include "harmonikortalama.h"
 #include "ortalamasapma.h"
+#include "geometrikortalama.h"
 
 int main(int argc, char *argv[])
 {
 	int y_flag = 0, d_flag = 0, s_flag = 0, i_flag = 0;
 	int ao_flag = 0, m_flag = 0, mod_flag = 0, ho_flag = 0;
-	int osap_flag = 0;
+	int osap_flag = 0, go_flag = 0;
 	int size;
 	double_t ans = 0;
 	double_t *arr;
@@ -43,6 +44,7 @@ int main(int argc, char *argv[])
 	              {"mod", no_argument, &mod_flag, 1},
 	              {"harmonik-ortalama", no_argument, &ho_flag, 1},
 	              {"ortalama-sapma", no_argument, &osap_flag, 1},
+	              {"geometrik-ortalama", no_argument, &go_flag, 1},
 	              {0}};
 
 	// parse command line arguments
@@ -166,6 +168,10 @@ int main(int argc, char *argv[])
 	}
 	if (osap_flag) {
 		ans = ortalamasapma(size, arr);
+		printf("%Lf\n", ans);
+	}
+	if (go_flag) {
+		ans = geometrik_ortalama(size, arr);
 		printf("%Lf\n", ans);
 	}
 

@@ -25,5 +25,7 @@ void yardim(FILE *fp, const char *argv)
 	        "\tVerilen sayilarin harmonik ortalamasini hesaplar\n"
 	        "--ortalama-sapma [DEGER(LER)]\n"
 	        "\tVerilen sayilarin ortalama sapmasini hesaplar\n"
+	        "--geometrik-ortalama [DEGER(LER)]\n"
+	        "\tVerilen sayilarin geometrik ortalamasini hesaplar\n"
 	        , argv);
 }
