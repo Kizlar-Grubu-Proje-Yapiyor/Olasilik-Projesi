@@ -3,8 +3,8 @@
 # Olasilik projesi icin gui arayuzudur.
 # Whiptail paketinin yuklu olması zorunludur.
 
-WINDOW_HEIGHT=20
-WINDOW_WIDTH=100
+WINDOW_HEIGHT=30
+WINDOW_WIDTH=150
 
 main()
 {
@@ -16,11 +16,11 @@ main()
 		--menu "Seçeneklerden birini seçiniz" \
 		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 6 \
 		"1" "Aritmetik Ortalama" \
-		"2" "Medyan" \
-		"3" "Mod" \
-		"4" "Harmonik Ortalama" \
-		"5" "Ortalama Sapma" \
-		"6" "Geometrik Ortalama" \
+		"2" "Harmonik Ortalama" \
+		"3" "Geometrik Ortalama" \
+		"4" "Medyan" \
+		"5" "Mod" \
+		"6" "Ortalama Sapma" \
 		)
 		
 		if [ $? = 1 ]
@@ -43,8 +43,38 @@ main()
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
 			${WINDOW_WIDTH} --title "Aritmetik Ortalama" 3>&1 1>&2 2>&3
 
-		# Medyan
+		# Harmonik Ortalama
 		elif [ ${SECIM} -eq 2 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --harmonik-ortalama)
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Harmonik Ortalama" 3>&1 1>&2 2>&3
+
+		# Geometrik Ortalama
+		elif [ ${SECIM} -eq 3 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --geometrik-ortalama)
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Geometrik Ortalama" 3>&1 1>&2 2>&3
+
+		# Medyan
+		elif [ ${SECIM} -eq 4 ]
 		then
 			sayi_al
 
@@ -59,7 +89,7 @@ main()
 			${WINDOW_WIDTH} --title "Medyan" 3>&1 1>&2 2>&3
 
 		# Mod
-		elif [ ${SECIM} -eq 3 ]
+		elif [ ${SECIM} -eq 5 ]
 		then
 			sayi_al
 
@@ -73,23 +103,8 @@ main()
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
 			${WINDOW_WIDTH} --title "Mod" 3>&1 1>&2 2>&3
 
-		# Harmonik Ortalama
-		elif [ ${SECIM} -eq 4 ]
-		then
-			sayi_al
-
-			if [ $? = 1 ]
-			then
-				continue
-			fi
-
-			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --harmonik-ortalama)
-
-			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
-			${WINDOW_WIDTH} --title "Harmonik Ortalama" 3>&1 1>&2 2>&3
-
 		# Ortalama Sapma
-		elif [ ${SECIM} -eq 5 ]
+		elif [ ${SECIM} -eq 6 ]
 		then
 			sayi_al
 
@@ -102,21 +117,6 @@ main()
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
 			${WINDOW_WIDTH} --title "Ortalama Sapma" 3>&1 1>&2 2>&3
-
-		# Ortalama Sapma
-		elif [ ${SECIM} -eq 6 ]
-		then
-			sayi_al
-
-			if [ $? = 1 ]
-			then
-				continue
-			fi
-
-			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --geometrik-ortalama)
-
-			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
-			${WINDOW_WIDTH} --title "Geometrik Ortalama" 3>&1 1>&2 2>&3
 		fi
 	done
 }

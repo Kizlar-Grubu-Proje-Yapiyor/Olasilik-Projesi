@@ -154,6 +154,14 @@ int main(int argc, char *argv[])
 		ans = aritmetik_ortalama(size, arr);
 		printf("%lf\n", ans);
 	}
+	if (ho_flag) {
+		ans = harmonikortalama(size, arr);
+		printf("%lf\n", ans);
+	}
+	if (go_flag) {
+		ans = geometrik_ortalama(size, arr);
+		printf("%lf\n", ans);
+	}
 	if (m_flag) {
 		ans = medyan(size, arr);
 		printf("%lf\n", ans);
@@ -162,16 +170,8 @@ int main(int argc, char *argv[])
 		ans = mod(size, arr);
 		printf("%lf\n", ans);
 	}
-	if (ho_flag) {
-		ans = harmonikortalama(size, arr);
-		printf("%lf\n", ans);
-	}
 	if (osap_flag) {
 		ans = ortalamasapma(size, arr);
-		printf("%lf\n", ans);
-	}
-	if (go_flag) {
-		ans = geometrik_ortalama(size, arr);
 		printf("%lf\n", ans);
 	}
 
