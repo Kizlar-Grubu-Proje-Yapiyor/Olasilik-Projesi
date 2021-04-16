@@ -17,7 +17,7 @@
 
 ## Proje Açıklaması
 
-Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olasılık ve istatistik projelerinize entegre edebileceğiniz harici bir programdır. Proje `C` dili ile yazılmıştır. [GNU getopt](https://www.gnu.org/software/libc/manual/html_node/Getopt.html) kütüphanesi kullanılmıştır. Linux üzerinde çalışması için tasarlanmıştır.
+Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olasılık ve istatistik projelerinize entegre edebileceğiniz harici bir programdır. Proje `C` dili ile yazılmıştır. [GNU getopt](https://www.gnu.org/software/libc/manual/html_node/Getopt.html) kütüphanesi kullanılmıştır. Linux üzerinde çalışması tavsiye edilir.
 
 
 ## Proje Grubu
@@ -32,11 +32,11 @@ Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olas�
 ### Kullanılabilir Formüller
 
 1. Aritmetik Ortalama
-2. Medyan
-3. Mod
-4. Harmonik Ortalama
-5. Ortalama Sapma
-6. Geometrik Ortalama
+2. Harmonik Ortalama
+3. Geometrik Ortalama
+4. Medyan
+5. Mod
+6. Ortalama Sapma
 
 
 ## Kurulum
