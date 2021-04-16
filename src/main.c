@@ -12,11 +12,12 @@
 #include "aritmetikortalama.h"
 #include "medyan.h"
 #include "mod.h"
+#include "harmonikortalama.h"
 
 int main(int argc, char *argv[])
 {
 	int y_flag = 0, d_flag = 0, s_flag = 0, i_flag = 0;
-	int ao_flag = 0, m_flag = 0, mod_flag = 0;
+	int ao_flag = 0, m_flag = 0, mod_flag = 0, ho_flag = 0;
 	int size;
 	double_t ans = 0;
 	double_t *arr;
@@ -38,6 +39,7 @@ int main(int argc, char *argv[])
 	              {"aritmetik-ortalama", no_argument, &ao_flag, 1},
 	              {"medyan", no_argument, &m_flag, 1},
 	              {"mod", no_argument, &mod_flag, 1},
+	              {"harmonik-ortalama", no_argument, &ho_flag, 1},
 	              {0}};
 
 	// parse command line arguments
@@ -79,6 +81,21 @@ int main(int argc, char *argv[])
 		}
 	}
 
+
+	// display help and exit
+	if (y_flag) {
+		yardim(stdout, argv[0]);
+		return 0;
+	}
+
+	// display limits and exit
+	if (s_flag) {
+		sinirlar(stdout);
+		return 0;
+	}
+
+
+	// take numbers from stdin
 	if (i_flag) {
 		arr = interaktif(&size);
 	}
@@ -94,19 +111,7 @@ int main(int argc, char *argv[])
 		fclose(fp);
 	}
 
-	// display help and exit
-	if (y_flag) {
-		yardim(stdout, argv[0]);
-		return 0;
-	}
-
-	// display limits and exit
-	if (s_flag) {
-		sinirlar(stdout);
-		return 0;
-	}
-
-	// getting numbers as arguments
+	// take numbers as arguments
 	if (!d_flag && !i_flag) {
 		arr = malloc(sizeof(double_t) * MAX_NUM);
 		if (arr == NULL) {
@@ -138,6 +143,7 @@ int main(int argc, char *argv[])
 		size = argc - optind;
 	}
 
+
 	// action!
 	if (ao_flag) {
 		ans = aritmetik_ortalama(size, arr);
@@ -151,6 +157,11 @@ int main(int argc, char *argv[])
 		ans = mod(size, arr);
 		printf("%Lf\n", ans);
 	}
+	if (ho_flag) {
+		ans = harmonikortalama(size, arr);
+		printf("%Lf\n", ans);
+	}
+
 
 	free(arr);
 	arr = NULL;
