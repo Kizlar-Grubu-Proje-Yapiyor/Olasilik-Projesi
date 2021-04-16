@@ -34,6 +34,8 @@ Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olas�
 1. Aritmetik Ortalama
 2. Medyan
 3. Mod
+4. Harmonik Ortalama
+5. Ortalama Sapma
 
 
 ## Kurulum

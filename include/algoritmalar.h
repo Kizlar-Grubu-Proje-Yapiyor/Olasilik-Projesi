@@ -23,3 +23,8 @@ static double_t min(double_t a, double_t b)
 {
 	return (a < b)? a: b;
 }
+
+static double_t ldabs(double_t a)
+{
+	return (a >= 0)? a: -a;
+}
