@@ -16,12 +16,13 @@
 #include "ortalamasapma.h"
 #include "geometrikortalama.h"
 #include "varyans.h"
+#include "standartsapma.h"
 
 int main(int argc, char *argv[])
 {
 	int y_flag = 0, d_flag = 0, s_flag = 0, i_flag = 0;
 	int ao_flag = 0, m_flag = 0, mod_flag = 0, ho_flag = 0;
-	int osap_flag = 0, go_flag = 0, v_flag = 0;
+	int osap_flag = 0, go_flag = 0, v_flag = 0, ss_flag = 0;
 	int size;
 	double ans = 0;
 	double *arr;
@@ -47,6 +48,7 @@ int main(int argc, char *argv[])
 	              {"ortalama-sapma", no_argument, &osap_flag, 1},
 	              {"geometrik-ortalama", no_argument, &go_flag, 1},
 	              {"varyans", no_argument, &v_flag, 1},
+	              {"standart-sapma", no_argument, &ss_flag, 1},
 	              {0}};
 
 	// parse command line arguments
@@ -174,6 +176,10 @@ int main(int argc, char *argv[])
 	}
 	if (osap_flag) {
 		ans = ortalama_sapma(size, arr);
+		printf("%lf\n", ans);
+	}
+	if (ss_flag) {
+		ans = standart_sapma(size, arr);
 		printf("%lf\n", ans);
 	}
 	if (v_flag) {

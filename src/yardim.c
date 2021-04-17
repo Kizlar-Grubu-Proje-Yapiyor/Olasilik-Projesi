@@ -27,5 +27,9 @@ void yardim(FILE *fp, const char *argv)
 	        "\tVerilen sayilarin modunu hesaplar\n"
 	        "--ortalama-sapma [DEGER(LER)]\n"
 	        "\tVerilen sayilarin ortalama sapmasini hesaplar\n"
+	        "--standart-sapma [DEGER(LER)]\n"
+	        "\tVerilen sayilarin standart sapmasini hesaplar\n"
+	        "--varyans [DEGER(LER)]\n"
+	        "\tVerilen sayilarin varyansini hesaplar\n"
 	        , argv);
 }

@@ -37,6 +37,8 @@ Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olas�
 4. Medyan
 5. Mod
 6. Ortalama Sapma
+7. Standart Sapma
+8. Varyans
 
 
 ## Kurulum

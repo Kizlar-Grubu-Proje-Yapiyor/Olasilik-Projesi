@@ -13,13 +13,15 @@ main()
 		SECIM=$(whiptail --title "Olasılık ve İstatistik" \
 		--ok-button "Seç" --cancel-button "Çıkış" \
 		--menu "Seçeneklerden birini seçiniz" \
-		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 6 \
+		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 8 \
 		"1" "Aritmetik Ortalama" \
 		"2" "Harmonik Ortalama" \
 		"3" "Geometrik Ortalama" \
 		"4" "Medyan" \
 		"5" "Mod" \
 		"6" "Ortalama Sapma" \
+		"7" "Standart Sapma" \
+		"8" "Varyans" \
 		)
 		
 		if [ $? = 1 ]
@@ -116,6 +118,36 @@ main()
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
 			${WINDOW_WIDTH} --title "Ortalama Sapma" 3>&1 1>&2 2>&3
+
+		# Standart Sapma
+		elif [ ${SECIM} -eq 7 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --standart-sapma)
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Standart Sapma" 3>&1 1>&2 2>&3
+
+		# Varyans
+		elif [ ${SECIM} -eq 8 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --varyans)
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Varyans" 3>&1 1>&2 2>&3
 		fi
 	done
 }
