@@ -4,7 +4,7 @@
 # Whiptail paketinin yuklu olması zorunludur.
 
 WINDOW_HEIGHT=30
-WINDOW_WIDTH=150
+WINDOW_WIDTH=125
 
 main()
 {
@@ -39,6 +39,8 @@ main()
 				continue
 			fi
 
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
+
 			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --aritmetik-ortalama)
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
@@ -53,6 +55,8 @@ main()
 			then
 				continue
 			fi
+
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
 
 			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --harmonik-ortalama)
 
@@ -69,6 +73,8 @@ main()
 				continue
 			fi
 
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
+
 			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --geometrik-ortalama)
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
@@ -83,6 +89,8 @@ main()
 			then
 				continue
 			fi
+
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
 
 			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --medyan)
 
@@ -99,6 +107,8 @@ main()
 				continue
 			fi
 
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
+
 			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --mod)
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
@@ -113,6 +123,8 @@ main()
 			then
 				continue
 			fi
+
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
 
 			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --ortalama-sapma)
 
@@ -129,6 +141,8 @@ main()
 				continue
 			fi
 
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
+
 			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --standart-sapma)
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
@@ -144,6 +158,8 @@ main()
 				continue
 			fi
 
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
+
 			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --varyans)
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
@@ -154,11 +170,10 @@ main()
 
 sayi_al()
 {
-	DIZI=$(whiptail --inputbox "Hesaplamak istediğiniz diziyi girin" \
-	     ${WINDOW_HEIGHT} ${WINDOW_WIDTH} --title "Dizi girin:" \
+	DIZI=$(whiptail --inputbox "Hesaplamak istediğiniz diziyi girin:" \
+	     ${WINDOW_HEIGHT} ${WINDOW_WIDTH} --title "Olasılık ve İstatistik" \
 	     --ok-button "Hesapla" --cancel-button "Vazgeç" \
          3>&1 1>&2 2>&3)
-	echo ${DIZI[@]} > "whiptail-girdi.txt"
 }
 
 main
