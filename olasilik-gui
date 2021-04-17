@@ -8,7 +8,6 @@ WINDOW_WIDTH=150
 
 main()
 {
-	make build
 	while [ 1 ]
 	do
 		SECIM=$(whiptail --title "Olasılık ve İstatistik" \
