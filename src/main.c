@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
 	int y_flag = 0, d_flag = 0, s_flag = 0, i_flag = 0;
 	int ao_flag = 0, m_flag = 0, mod_flag = 0, ho_flag = 0;
 	int osap_flag = 0, go_flag = 0, v_flag = 0, ss_flag = 0;
+	int dty_flag = 0, btn_flag = 0;
 	int size;
 	double ans = 0;
 	double *arr;
@@ -41,6 +42,8 @@ int main(int argc, char *argv[])
 	              {"dosya", required_argument, NULL, 'd'},
 	              {"sinirlar", no_argument, &s_flag, 1},
 	              {"interaktif", no_argument, &i_flag, 1},
+	              {"detay", no_argument, &dty_flag, 1},
+	              {"butun-formuller", no_argument, &btn_flag, 1},
 	              {"aritmetik-ortalama", no_argument, &ao_flag, 1},
 	              {"medyan", no_argument, &m_flag, 1},
 	              {"mod", no_argument, &mod_flag, 1},
@@ -154,35 +157,59 @@ int main(int argc, char *argv[])
 
 
 	// action!
-	if (ao_flag) {
+	if (ao_flag || btn_flag) {
+		if (dty_flag) {
+			printf("Aritmetik ortalama: ");
+		}
 		ans = aritmetik_ortalama(size, arr);
 		printf("%lf\n", ans);
 	}
-	if (ho_flag) {
+	if (ho_flag || btn_flag) {
+		if (dty_flag) {
+			printf("Harmonik ortalama: ");
+		}
 		ans = harmonik_ortalama(size, arr);
 		printf("%lf\n", ans);
 	}
-	if (go_flag) {
+	if (go_flag || btn_flag) {
+		if (dty_flag) {
+			printf("Geometrik ortalama: ");
+		}
 		ans = geometrik_ortalama(size, arr);
 		printf("%lf\n", ans);
 	}
-	if (m_flag) {
+	if (m_flag || btn_flag) {
+		if (dty_flag) {
+			printf("Medyan: ");
+		}
 		ans = medyan(size, arr);
 		printf("%lf\n", ans);
 	}
-	if (mod_flag) {
+	if (mod_flag || btn_flag) {
+		if (dty_flag) {
+			printf("Mod: ");
+		}
 		ans = mod(size, arr);
 		printf("%lf\n", ans);
 	}
-	if (osap_flag) {
+	if (osap_flag || btn_flag) {
+		if (dty_flag) {
+			printf("Ortalama sapma: ");
+		}
 		ans = ortalama_sapma(size, arr);
 		printf("%lf\n", ans);
 	}
-	if (ss_flag) {
+	if (ss_flag || btn_flag) {
+		if (dty_flag) {
+			printf("Standart sapma: ");
+		}
 		ans = standart_sapma(size, arr);
 		printf("%lf\n", ans);
 	}
-	if (v_flag) {
+	if (v_flag || btn_flag) {
+		if (dty_flag) {
+			printf("Varyans: ");
+		}
 		ans = varyans(size, arr);
 		printf("%lf\n", ans);
 	}
