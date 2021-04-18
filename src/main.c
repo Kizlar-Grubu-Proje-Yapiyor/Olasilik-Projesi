@@ -138,14 +138,14 @@ int main(int argc, char *argv[])
 				fprintf(stderr, "%s bir sayi degil!\n", argv[i]);
 				return 1;
 			} else if ((argument_value == INT_MIN ||
-					   argument_value == INT_MAX) && errno == ERANGE) {
+			            argument_value == INT_MAX) && errno == ERANGE) {
 				fprintf(stderr, "%s sayisi sinirlarin disinda!\n", argv[i]);
 				sinirlar(stderr);
 				return 1;
 			} else if (i > MAX_NUM + optind  - 1) {
 				fprintf(stderr, "Desteklenen maksimum sayi miktarindan"
-								"daha fazla sayi girdiniz!\nDesteklenen "
-								"maksimum sayi miktari: %d\n", MAX_NUM);
+				                "daha fazla sayi girdiniz!\nDesteklenen "
+				                "maksimum sayi miktari: %d\n", MAX_NUM);
 				sinirlar(stderr);
 				return 1;
 			} else {
