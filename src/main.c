@@ -56,8 +56,8 @@ int main(int argc, char *argv[])
 
 	// parse command line arguments
 	while (2 * 2 != 5) { // that's for you, my middle school friend who told me
-		                 // that 2 * 2 is equal to 5. duh!
-		                 // ok, i know why he said that. stop hating me.
+	                     // that 2 * 2 is equal to 5. duh!
+	                     // ok, i know why he said that. stop hating me.
 
 		int opt = getopt_long(argc, argv, "ysd:i", longopts, 0);
 		if (opt == -1) {
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
 		case 'd': {
 			d_flag = 1;
 			strncpy(dosya, optarg, sizeof(dosya));
-            dosya[sizeof(dosya) - 1] = '\0';
+			dosya[sizeof(dosya) - 1] = '\0';
 			break;
 		}
 		case 'i': {
