@@ -3,7 +3,11 @@
 
 static int cmpfunc (const void * a, const void * b)
 {
-	return *(double *)a - *(double *)b;
+	if ((*(double *)a) > (*(double *)b))
+		return 1;
+	else if (*(double *)a < *(double *)b)
+		return -1;
+	return 0;
 }
 
 static double d_abs(double a)
