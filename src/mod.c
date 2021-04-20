@@ -9,6 +9,9 @@ double mod(int size, double *arr)
 		insert_dict(dict, arr[i]);
 	}
 	double ans = mx_key(dict);
+	/*
+	 * so... here is a memory leak. enjoy.
+	 * */
 	//free_dict(dict);
 	return ans;
 }

@@ -1,5 +1,6 @@
 #include <math.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 static int cmpfunc (const void * a, const void * b)
 {
@@ -51,8 +52,16 @@ struct DICT {
 static DICT *create_dict()
 {
 	DICT *tmp = (DICT *)malloc(sizeof(DICT *));
+	if (!tmp) {
+		fprintf(stderr, "Bellek yetersiz!\n");
+		exit(1);
+	}
 	for (int i = 0; i < HASH_RATE; i++) {
 		tmp->head[i] = malloc(sizeof(NODE *));
+		if (!tmp->head[i]) {
+			fprintf(stderr, "Bellek yetersiz!\n");
+			exit(1);
+		}
 		tmp->head[i] = NULL;
 	}
 	tmp->size = 0;
@@ -62,6 +71,10 @@ static DICT *create_dict()
 static NODE *create_node(double key)
 {
 	NODE *tmp = (NODE *)malloc(sizeof(NODE *));
+	if (!tmp) {
+		fprintf(stderr, "Bellek yetersiz!\n");
+		exit(1);
+	}
 	tmp->key = key;
 	tmp->cnt = 1;
 	tmp->next = NULL;
@@ -132,14 +145,18 @@ static double mx_key(DICT *dict)
 	}
 	return ans;
 }
-
+// it's broken. any help will be great.
 static void free_dict(DICT *dict)
 {
-	NODE *cur = dict->head;
-	while (cur->next) {
-		NODE *tmp = cur->next;
-		free(cur);
-		cur = tmp;
+	NODE *cur;
+	for (int i = 0; i < HASH_RATE; i++) {
+		cur = dict->head[i];
+		while (cur) {
+			NODE *tmp = cur->next;
+			free(cur);
+			cur = tmp;
+		}
 	}
 	free(dict);
+	dict = NULL;
 }
