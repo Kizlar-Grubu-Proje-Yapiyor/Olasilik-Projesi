@@ -83,7 +83,7 @@ static NODE *create_node(double key)
 
 static DICT *insert_dict(DICT *dict, double n)
 {
-	int i_key = (int)n / HASH_RATE;
+	int i_key = (int)n % HASH_RATE;
 	if (!dict->head[i_key]) {
 		NODE *tmp = create_node(n);
 		dict->head[i_key] = tmp;
@@ -91,7 +91,7 @@ static DICT *insert_dict(DICT *dict, double n)
 		return dict;
 	}
 	NODE *tmp = dict->head[i_key];
-	while (tmp) {
+	while (1) {
 		if (tmp->key == n) {
 			tmp->cnt++;
 			return dict;
@@ -112,7 +112,7 @@ static int val_dict(DICT *dict, double key)
 	if (!dict) {
 		return 0;
 	}
-	int i_key = (int)key / HASH_RATE;
+	int i_key = (int)key % HASH_RATE;
 	NODE *tmp = dict->head[i_key];
 	while (tmp) {
 		if (tmp->key == key) {
@@ -148,13 +148,20 @@ static double mx_key(DICT *dict)
 // it's broken. any help will be great.
 static void free_dict(DICT *dict)
 {
-	NODE *cur;
 	for (int i = 0; i < HASH_RATE; i++) {
-		cur = dict->head[i];
-		while (cur) {
-			NODE *tmp = cur->next;
-			free(cur);
-			cur = tmp;
+		NODE *cur = dict->head[i];
+		NODE *tmp = NULL;
+		while (1) {
+			if (tmp) {
+				free(tmp);
+				tmp = NULL;
+			}
+			if (cur) {
+				tmp = cur;
+				cur = cur->next;
+			} else {
+				break;
+			}
 		}
 	}
 	free(dict);
