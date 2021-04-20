@@ -18,6 +18,10 @@ static double d_root(double base, double power)
 
 
 // stupid dictionary implementation
+#ifndef HASH_RATE
+# define HASH_RATE 1000
+#endif
+
 typedef struct NODE NODE;
 typedef struct DICT DICT;
 
@@ -36,14 +40,17 @@ struct NODE {
 };
 
 struct DICT {
-	NODE *head;
+	NODE *head[HASH_RATE];
 	int size;
 };
 
 static DICT *create_dict()
 {
 	DICT *tmp = (DICT *)malloc(sizeof(DICT *));
-	tmp->head = NULL;
+	for (int i = 0; i < HASH_RATE; i++) {
+		tmp->head[i] = malloc(sizeof(NODE *));
+		tmp->head[i] = NULL;
+	}
 	tmp->size = 0;
 	return tmp;
 }
@@ -59,13 +66,14 @@ static NODE *create_node(double key)
 
 static DICT *insert_dict(DICT *dict, double n)
 {
-	if (!dict->head) {
+	int i_key = (int)n / HASH_RATE;
+	if (!dict->head[i_key]) {
 		NODE *tmp = create_node(n);
-		dict->head = tmp;
-		dict->size = 1;
+		dict->head[i_key] = tmp;
+		dict->size++;
 		return dict;
 	}
-	NODE *tmp = dict->head;
+	NODE *tmp = dict->head[i_key];
 	while (tmp) {
 		if (tmp->key == n) {
 			tmp->cnt++;
@@ -87,7 +95,8 @@ static int val_dict(DICT *dict, double key)
 	if (!dict) {
 		return 0;
 	}
-	NODE *tmp = dict->head;
+	int i_key = (int)key / HASH_RATE;
+	NODE *tmp = dict->head[i_key];
 	while (tmp) {
 		if (tmp->key == key) {
 			return tmp->cnt;
@@ -104,18 +113,18 @@ static int dict_size(DICT *dict)
 
 static double mx_key(DICT *dict)
 {
-	double ans;
+	double ans = 0;
 	int mx = -1;
-	if (!dict->head) {
-		return 0;
-	}
-	NODE *tmp = dict->head;
-	while (tmp) {
-		if (mx < tmp->cnt) {
-			ans = tmp->key;
-			mx = tmp->cnt;
+	NODE *tmp;
+	for (int i = 0; i < HASH_RATE; i++) {
+		tmp = dict->head[i];
+		while (tmp) {
+			if (mx < tmp->cnt) {
+				ans = tmp->key;
+				mx = tmp->cnt;
+			}
+			tmp = tmp->next;
 		}
-		tmp = tmp->next;
 	}
 	return ans;
 }

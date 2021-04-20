@@ -9,6 +9,6 @@ double mod(int size, double *arr)
 		insert_dict(dict, arr[i]);
 	}
 	double ans = mx_key(dict);
-	free_dict(dict);
+	//free_dict(dict);
 	return ans;
 }
