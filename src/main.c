@@ -143,9 +143,9 @@ int main(int argc, char *argv[])
 				sinirlar(stderr);
 				return 1;
 			} else if (i > MAX_NUM + optind  - 1) {
-				fprintf(stderr, "Desteklenen maksimum sayi miktarindan"
+				fprintf(stderr, "Desteklenen maksimum sayi miktarindan "
 				                "daha fazla sayi girdiniz!\nDesteklenen "
-				                "maksimum sayi miktari: %d\n", MAX_NUM);
+				                "maksimum sayi miktari: %d\n\n", MAX_NUM);
 				sinirlar(stderr);
 				return 1;
 			} else {
