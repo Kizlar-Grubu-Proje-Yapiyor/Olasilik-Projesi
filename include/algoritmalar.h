@@ -45,7 +45,7 @@ struct NODE {
 };
 
 struct DICT {
-	NODE *head[HASH_RATE];
+	NODE **head;
 	int size;
 };
 
@@ -56,12 +56,12 @@ static DICT *create_dict()
 		fprintf(stderr, "Bellek yetersiz!\n");
 		exit(1);
 	}
+	tmp->head = (NODE **)malloc(sizeof(NODE *) * HASH_RATE);
+	if (!tmp->head) {
+		fprintf(stderr, "Bellek yetersiz!\n");
+		exit(1);
+	}
 	for (int i = 0; i < HASH_RATE; i++) {
-		tmp->head[i] = malloc(sizeof(NODE *));
-		if (!tmp->head[i]) {
-			fprintf(stderr, "Bellek yetersiz!\n");
-			exit(1);
-		}
 		tmp->head[i] = NULL;
 	}
 	tmp->size = 0;
@@ -163,6 +163,8 @@ static void free_dict(DICT *dict)
 				break;
 			}
 		}
+		free(dict->head[i]);
+		dict->head[i] = NULL;
 	}
 	free(dict);
 	dict = NULL;
