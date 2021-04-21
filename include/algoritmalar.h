@@ -45,19 +45,14 @@ struct NODE {
 };
 
 struct DICT {
-	NODE **head;
+	NODE *head[HASH_RATE];
 	int size;
 };
 
 static DICT *create_dict()
 {
-	DICT *tmp = (DICT *)malloc(sizeof(DICT *));
+	DICT *tmp = (DICT *)malloc(sizeof(DICT));
 	if (!tmp) {
-		fprintf(stderr, "Bellek yetersiz!\n");
-		exit(1);
-	}
-	tmp->head = (NODE **)malloc(sizeof(NODE *) * HASH_RATE);
-	if (!tmp->head) {
 		fprintf(stderr, "Bellek yetersiz!\n");
 		exit(1);
 	}
@@ -70,7 +65,7 @@ static DICT *create_dict()
 
 static NODE *create_node(double key)
 {
-	NODE *tmp = (NODE *)malloc(sizeof(NODE *));
+	NODE *tmp = (NODE *)malloc(sizeof(NODE));
 	if (!tmp) {
 		fprintf(stderr, "Bellek yetersiz!\n");
 		exit(1);
@@ -145,25 +140,17 @@ static double mx_key(DICT *dict)
 	}
 	return ans;
 }
-// it's broken. any help will be great.
+
 static void free_dict(DICT *dict)
 {
 	for (int i = 0; i < HASH_RATE; i++) {
 		NODE *cur = dict->head[i];
 		NODE *tmp = NULL;
-		while (1) {
-			if (tmp) {
-				free(tmp);
-				tmp = NULL;
-			}
-			if (cur) {
-				tmp = cur;
-				cur = cur->next;
-			} else {
-				break;
-			}
+		while (cur) {
+			tmp = cur->next;
+			free(cur);
+			cur = tmp;
 		}
-		free(dict->head[i]);
 		dict->head[i] = NULL;
 	}
 	free(dict);
