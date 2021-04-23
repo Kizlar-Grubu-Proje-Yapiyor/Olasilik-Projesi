@@ -17,7 +17,8 @@
 
 ## Proje Açıklaması
 
-Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olasılık ve istatistik projelerinize entegre edebileceğiniz harici bir programdır. Proje `C` dili ile yazılmıştır. [GNU getopt](https://www.gnu.org/software/libc/manual/html_node/Getopt.html) kütüphanesi kullanılmıştır.
+Bu proje: komut satırı tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olasılık ve istatistik projelerinize entegre edebileceğiniz harici bir programdır. Proje `C` dili ile yazılıp, [GNU getopt](https://www.gnu.org/software/libc/manual/html_node/Getopt.html) kütüphanesi kullanılmıştır.  
+Bu proje MAT0293 Olasılık ve İstatistik dersi için hazırlanmıştır.
 
 
 ## Proje Grubu
@@ -43,7 +44,7 @@ Bu proje cli tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olas�
 
 ## Kurulum
 
-**Derleyici olarak `gcc` kullanılması zorunludur.**
+**Derleyici olarak `gcc` kullanılması zorunludur!**
 
 ### Linux
 
@@ -56,7 +57,7 @@ cd Olasilik-Projesi
 make build
 ```
 
-### Red Hat Tabanlı Linux Dağıtımları (Fedora, Cent OS, RHEL...)
+### Red Hat Tabanlı Linux Dağıtımları (Fedora Linux, Cent OS, RHEL...)
 
 ```bash
 sudo dnf install -y gcc make newt
@@ -67,9 +68,9 @@ make build
 
 ### Windows
 
-Repo'yu indirdiğiniz dizinde bir `cmd` açıp aşağıdaki komutu giriniz:
+Repo'yu indirdiğiniz dizinde `cmd` veya `powershell` açıp aşağıdaki komutu giriniz:
 
-```cmd
+```powershell
 gcc src/* -I include -lm -O3 -o olasilik
 ```
 
@@ -98,12 +99,6 @@ Genel kullanım:
 ./olasilik --[SECENEK] [DEGER(LER)]
 ```
 
-Bütün seçenekleri görmek veya yardım almak için:
-
-```bash
-./olasilik --yardim
-```
-
 Aritmetik ortalama için örnek kullanım:
 
 ```bash
@@ -120,9 +115,13 @@ Aritmetik ortalama için örnek kullanım:
 # stdin'den okunan sayıların aritmetik ortalamasını yazar
 ```
 
-Diğer formüller için `--yardim` bayrağı ile bilgi alabilirsiniz.  
+Bütün seçenekleri görmek veya yardım almak için `--yardim` bayrağını kullanabilirsiniz:
 
-Ayrıca sisteminizde `whiptail` ve `bash` yüklü ise önyüzü de kullanabilirsiniz:
+```bash
+./olasilik --yardim
+```
+
+Ayrıca sisteminizde `bash` ve `whiptail` yüklü ise önyüzü de kullanabilirsiniz:
 
 ```bash
 ./olasilik-gui
