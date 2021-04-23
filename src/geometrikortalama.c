@@ -1,5 +1,5 @@
 #include "geometrikortalama.h"
-#include "algoritmalar.h"
+#include <math.h>
 
 double geometrik_ortalama(int size, double *arr)
 {
