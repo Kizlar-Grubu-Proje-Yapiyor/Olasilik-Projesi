@@ -10,7 +10,7 @@ SDIR = src
 CFLAGS = -I$(IDIR) -lm
 DBGFLAGS = -Wall
 
-OBJS = main.o yardim.o sinirlar.o interaktif.o dosya.o \
+OBJS = main.o yardim.o sinirlar.o interaktif.o dosya.o algoritmalar.o\
        aritmetikortalama.o medyan.o mod.o harmonikortalama.o \
        ortalamasapma.o geometrikortalama.o varyans.o standartsapma.o
 
