@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static int cmpfunc (const void * a, const void * b)
+static int cmpfunc (const void *a, const void *b)
 {
 	if ((*(double *)a) > (*(double *)b))
 		return 1;
@@ -14,11 +14,6 @@ static int cmpfunc (const void * a, const void * b)
 static double d_abs(double a)
 {
 	return (a >= 0)? a: -a;
-}
-
-static double d_root(double base, double power)
-{
-	return pow(base, (double)1 / power);
 }
 
 
