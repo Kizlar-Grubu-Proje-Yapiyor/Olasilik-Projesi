@@ -7,7 +7,7 @@ CC = gcc
 IDIR = include
 SDIR = src
 
-CFLAGS = -I$(IDIR) -lm
+CFLAGS = -I$(IDIR) -lm -O3
 DBGFLAGS = -Wall
 
 OBJS = main.o yardim.o sinirlar.o interaktif.o dosya.o algoritmalar.o\
@@ -19,6 +19,8 @@ HDR = $(IDIR)/main.h $(IDIR)/algoritmalar.h
 
 $(NAME): $(OBJS)
 	$(CC) $^ $(CFLAGS) -o $@
+
+again: clean $(NAME)
 
 build:
 	$(CC) $(SDIR)/* $(CFLAGS) -o $(NAME)

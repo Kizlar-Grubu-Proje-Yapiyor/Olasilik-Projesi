@@ -70,7 +70,7 @@ make build
 Repo'yu indirdiğiniz dizinde bir `cmd` açıp aşağıdaki komutu giriniz:
 
 ```cmd
-gcc src/* -I include -lm -o olasilik
+gcc src/* -I include -lm -O3 -o olasilik
 ```
 
 ### Mac OS X
@@ -86,7 +86,7 @@ make build
 Eğer `make` ve `git` yüklü değil fakat `gcc` yüklü ise repoyu indirdiğiniz konumda:
 
 ```bash
-gcc src/* -I include -lm -o olasilik
+gcc src/* -I include -lm -O3 -o olasilik
 ```
 
 
