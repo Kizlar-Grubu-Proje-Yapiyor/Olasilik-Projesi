@@ -1,5 +1,3 @@
-# Please read README.md for usage
-
 NAME = olasilik
 
 CC = gcc
