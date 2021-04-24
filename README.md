@@ -44,7 +44,8 @@ Bu proje MAT0293 Olasılık ve İstatistik dersi için hazırlanmıştır.
 
 ## Kurulum
 
-**Derleyici olarak `gcc` kullanılması zorunludur!**
+**Derleyici olarak `gcc` kullanılması zorunludur!**  
+Eğer sisteminizde derleyici yok veya hazır çalıştırılabilir dosyayı istiyorsanız [relases](https://github.com/Kizlar-Grubu-Proje-Yapiyor/Olasilik-Projesi/releases) sayfasından sisteminize uygun dosyayı indirip kurabilirsiniz.
 
 ### Linux
 
@@ -84,11 +85,13 @@ cd Olasilik-Projesi
 make build
 ```
 
-Eğer `make` ve `git` yüklü değil fakat `gcc` yüklü ise repoyu indirdiğiniz konumda:
+Eğer `make` ve `git` yüklü değil fakat `gcc` yüklü ise repo'yu indirdiğiniz dizinde:
 
 ```bash
 gcc src/* -I include -lm -O3 -o olasilik
 ```
+
+Kodun Mac OS X'de test edilmesinde ve çalıştırılabilir dosyanın oluşturulmasında destek oldukları için Kağan Kağanoğlu ve Ekrem Bal'a teşekkür ederiz.
 
 
 ## Kullanım
