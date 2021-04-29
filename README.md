@@ -130,7 +130,7 @@ Ayrıca sisteminizde `bash` ve `whiptail` yüklü ise önyüzü de kullanabilirs
 ./olasilik-gui
 ```
 
-![whiptail](pics/whiptail.png)
+![whiptail](images/whiptail.png)
 
 ## Lisans
 
