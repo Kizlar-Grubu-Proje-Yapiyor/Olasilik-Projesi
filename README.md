@@ -61,7 +61,7 @@ make build
 ### Red Hat Tabanlı Linux Dağıtımları (Fedora Linux, Cent OS, RHEL...)
 
 ```bash
-sudo dnf install -y gcc make newt
+sudo dnf install -y gcc make newt git
 git clone https://github.com/Kizlar-Grubu-Proje-Yapiyor/Olasilik-Projesi.git
 cd Olasilik-Projesi
 make build
