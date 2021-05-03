@@ -40,6 +40,7 @@ Bu proje MAT0293 Olasılık ve İstatistik dersi için hazırlanmıştır.
 6. Ortalama Sapma
 7. Standart Sapma
 8. Varyans
+9. Değişim Katsayısı
 
 
 ## Kurulum

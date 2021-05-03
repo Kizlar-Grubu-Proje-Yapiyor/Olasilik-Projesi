@@ -22,6 +22,7 @@ main()
 		"6" "Ortalama Sapma" \
 		"7" "Standart Sapma" \
 		"8" "Varyans" \
+		"9" "Değişim Katsayısı"
 		)
 		
 		if [ $? = 1 ]
@@ -164,6 +165,23 @@ main()
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
 			${WINDOW_WIDTH} --title "Varyans" 3>&1 1>&2 2>&3
+
+		# Degisim Katsayısı
+		elif [ ${SECIM} -eq 9 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --degisim-katsayisi)
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Değişim Katsayısı" 3>&1 1>&2 2>&3
 		fi
 	done
 }

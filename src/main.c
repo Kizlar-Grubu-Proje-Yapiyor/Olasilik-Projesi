@@ -17,13 +17,14 @@
 #include "geometrikortalama.h"
 #include "varyans.h"
 #include "standartsapma.h"
+#include "degisimkatsayisi.h"
 
 int main(int argc, char *argv[])
 {
 	int y_flag = 0, d_flag = 0, s_flag = 0, i_flag = 0;
 	int ao_flag = 0, m_flag = 0, mod_flag = 0, ho_flag = 0;
 	int osap_flag = 0, go_flag = 0, v_flag = 0, ss_flag = 0;
-	int dty_flag = 0, btn_flag = 0;
+	int dty_flag = 0, btn_flag = 0, dk_flag = 0;
 	int size;
 	double ans = 0;
 	double *arr;
@@ -52,6 +53,7 @@ int main(int argc, char *argv[])
 	              {"geometrik-ortalama", no_argument, &go_flag, 1},
 	              {"varyans", no_argument, &v_flag, 1},
 	              {"standart-sapma", no_argument, &ss_flag, 1},
+	              {"degisim-katsayisi", no_argument, &dk_flag, 1},
 	              {0}};
 
 	// parse command line arguments
@@ -211,6 +213,13 @@ int main(int argc, char *argv[])
 			printf("Varyans: ");
 		}
 		ans = varyans(size, arr);
+		printf("%lf\n", ans);
+	}
+	if (dk_flag || btn_flag) {
+		if (dty_flag) {
+			printf("Degisim katsayisi: ");
+		}
+		ans = degisim_katsayisi(size, arr);
 		printf("%lf\n", ans);
 	}
 
