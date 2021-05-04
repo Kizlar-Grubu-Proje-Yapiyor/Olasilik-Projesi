@@ -92,7 +92,7 @@ Eğer `make` ve `git` yüklü değil fakat `gcc` yüklü ise repo'yu indirdiğin
 gcc src/* -I include -lm -O3 -o olasilik
 ```
 
-Kodun Mac OS X'de test edilmesinde ve çalıştırılabilir dosyanın oluşturulmasında destek oldukları için Kağan Kağanoğlu ve Ekrem Bal'a teşekkür ederiz.
+Kodun Mac OS X'de test edilmesinde ve çalıştırılabilir dosyanın oluşturulmasında destek oldukları için [Kağan Kağanoğlu](https://github.com/kagankaganoglu) ve [Ekrem Bal](https://github.com/ekrembal)'a teşekkür ederiz.
 
 
 ## Kullanım
