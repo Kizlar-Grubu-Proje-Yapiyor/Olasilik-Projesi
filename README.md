@@ -45,8 +45,7 @@ Bu proje MAT0293 Olasılık ve İstatistik dersi için hazırlanmıştır.
 
 ## Kurulum
 
-**Derleyici olarak `gcc` kullanılması zorunludur!**  
-Eğer sisteminizde derleyici yok veya hazır çalıştırılabilir dosyayı istiyorsanız [relases](https://github.com/Kizlar-Grubu-Proje-Yapiyor/Olasilik-Projesi/releases) sayfasından sisteminize uygun dosyayı indirip kurabilirsiniz.
+**Derleyici olarak `gcc` kullanılması zorunludur!**
 
 ### Linux
 
