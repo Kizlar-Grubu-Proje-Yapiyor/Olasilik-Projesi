@@ -35,7 +35,7 @@ void yardim(FILE *fp, const char *argv)
 	        "\tVerilen sayilarin standart sapmasini hesaplar\n"
 	        "--varyans [DEGER(LER)]\n"
 	        "\tVerilen sayilarin varyansini hesaplar\n"
-	        "--degisim_katsayisi [DEGER(LER)]\n"
-	        "\tVerilen sayilarin degisim katyasini hesaplar\n"
+	        "--degisim-katsayisi [DEGER(LER)]\n"
+	        "\tVerilen sayilarin degisim katsayisini hesaplar\n"
 	        , argv);
 }
