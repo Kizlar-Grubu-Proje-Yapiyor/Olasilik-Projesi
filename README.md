@@ -18,7 +18,7 @@
 ## Proje Açıklaması
 
 Bu proje: komut satırı tabanlı, matematiksel formülleri hesaplayabilecek ve diğer olasılık ve istatistik projelerinize entegre edebileceğiniz harici bir programdır. Proje `C` dili ile yazılıp, [GNU getopt](https://www.gnu.org/software/libc/manual/html_node/Getopt.html) kütüphanesi kullanılmıştır.  
-Bu proje MAT0293 Olasılık ve İstatistik dersi için hazırlanmıştır.
+Bu proje BTÜ MAT0293 Olasılık ve İstatistik dersi için hazırlanmıştır.
 
 
 ## Proje Grubu
@@ -45,7 +45,8 @@ Bu proje MAT0293 Olasılık ve İstatistik dersi için hazırlanmıştır.
 
 ## Kurulum
 
-**Derleyici olarak `gcc` kullanılması zorunludur!**
+**Derleyici olarak `gcc` kullanılması zorunludur!**  
+Eğer sisteminizde `gcc` derleyicisi bulunmuyorsa [releases](https://github.com/Kizlar-Grubu-Proje-Yapiyor/Olasilik-Projesi/releases) sayfasından işletim sisteminize uygun çalıştırılabilir dosyayı indirebilirsiniz.
 
 ### Linux
 
