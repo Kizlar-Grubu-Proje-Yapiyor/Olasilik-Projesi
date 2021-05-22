@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 #include "algoritmalar.h"
 
 int cmpfunc (const void *a, const void *b)
@@ -21,6 +22,32 @@ double d_factorial(double n)
 	double ans = 1;
 	for (int i = 2; i <= n; i++) {
 		ans *= i;
+	}
+	return ans;
+}
+
+double d_max(double a, double b) {
+	return (a > b)? a: b;
+}
+
+double d_min(double a, double b) {
+	return (a < b)? a: b;
+}
+
+double d_max_arr(int size, double *arr)
+{
+	double ans = INT_MIN;
+	for (int i = 0; i < size; i++) {
+		ans = d_max(ans, arr[i]);
+	}
+	return ans;
+}
+
+double d_min_arr(int size, double *arr)
+{
+	double ans = INT_MAX;
+	for (int i = 0; i < size; i++) {
+		ans = d_min(ans, arr[i]);
 	}
 	return ans;
 }

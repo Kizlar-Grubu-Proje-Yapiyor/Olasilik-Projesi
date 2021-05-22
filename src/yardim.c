@@ -21,6 +21,8 @@ void yardim(FILE *fp, const char *argv)
 	        "\tCiktida hangi formulun cevabi oldugunu da yazar\n"
 	        " --butun-formuller\n"
 	        "\tDizi ile hesaplanabilen butun formulleri hesaplar\n"
+	        " -f [SINIF SAYISI], --frekans [SINIF SAYISI]\n"
+	        "\tVerilen sinif sayisina gore frekans dagilimini yazar\n"
 	        "\n"
 	        "Kullanilabilir formuller:\n"
 	        " --aritmetik-ortalama [DEGER(LER)]\n"
