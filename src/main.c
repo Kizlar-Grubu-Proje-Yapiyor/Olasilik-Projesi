@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	int dty_flag = 0, btn_flag = 0, dk_flag = 0;
 	int p_flag = 0, k_flag = 0, f_flag = 0;
 	int adet_flag = 0, sirala_flag = 0;
-	int size;
+	int size = 0;
 	double ans = 0;
 	double *arr;
 	char dosya[MAX_DOSYA_ISIM_UZUNLUGU];

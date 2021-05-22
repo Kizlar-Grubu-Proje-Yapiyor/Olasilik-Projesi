@@ -256,10 +256,6 @@ main()
 		# Frekans
 		elif [ ${SECIM} -eq 14 ]
 		then
-			base=$(whiptail --inputbox "Sınıf sayısını giriniz:" \
-			     ${WINDOW_HEIGHT} ${WINDOW_WIDTH} --title "Olasılık ve İstatistik" \
-			     --ok-button "Hesapla" --cancel-button "Vazgeç" \
-			     3>&1 1>&2 2>&3)
 			sayi_al
 
 			if [ $? = 1 ]
@@ -269,10 +265,10 @@ main()
 
 			echo ${DIZI[@]} > "whiptail-girdi.txt"
 
-			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --frekans ${base})
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --frekans)
 
 			whiptail --msgbox "Cevabınız:\n${CEVAP}" ${WINDOW_HEIGHT} \
-			${WINDOW_WIDTH} --title "Kombinasyon" 3>&1 1>&2 2>&3
+			${WINDOW_WIDTH} --title "Frekans" 3>&1 1>&2 2>&3
 		fi
 	done
 }

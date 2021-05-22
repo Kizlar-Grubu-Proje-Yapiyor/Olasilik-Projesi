@@ -6,12 +6,13 @@
 
 void frekans(int size, double *arr)
 {
-	int *tmp = frekans_dizi(size, arr);
-	for (int i = 0; i < (10 + 1) * 3; i += 3) {
-		if (tmp[i] == 0)
-			break;
+	int sinif = 0;
+	int *tmp = frekans_dizi(size, arr, &sinif);
+	for (int i = 0; i < sinif * 3; i += 3) {
 		printf("%d-%d\t\t%d\n", tmp[i], tmp[i + 1], tmp[i + 2]);
 	}
+	free(tmp);
+	tmp = NULL;
 }
 
 /*
@@ -25,37 +26,36 @@ void frekans(int size, double *arr)
  * bu yuzden kontrol etmelisiniz
  * ve biliyorum, berbat bir fonksiyon
  * */
-int *frekans_dizi(int size, double *arr)
+int *frekans_dizi(int size, double *arr, int *sinif)
 {
-	int sinif = 1 + 3.3 * log(size);
-	int *tmp = (int *)calloc(sizeof(int), (sinif + 1) * 3);
+	int sinif_tmp = d_to_int(1 + 3.3 * log10(size));
+	*sinif = sinif_tmp;
+
+	int *tmp = (int *)malloc(sizeof(int) * sinif_tmp * 3);
 	if (!tmp) {
 		fprintf(stderr, "Bellek yetersiz!\n");
 		exit(1);
 	}
+
 	int j = 0;
 	qsort(arr, size, sizeof(double), cmpfunc);
-	double sinif_araligi_tmp = (arr[size - 1] - arr[0]) / (double)sinif;
-	double ondalik = sinif_araligi_tmp - (int)sinif_araligi_tmp;
-	int sinif_araligi = (int)sinif_araligi_tmp;
-	if (ondalik >= 0.5)
-		sinif_araligi++;
-	int sinif_baslangic = arr[0];
+
+	int sinif_araligi = d_to_int_up((arr[size - 1] - arr[0]) / sinif_tmp);
+	int alt_deger = arr[0], ust_deger = arr[0] + sinif_araligi;
 	int f_cnt = 0;
-	for (int i = 1; i < size; i++) {
-		f_cnt++;
-		if (arr[i] - sinif_baslangic >= sinif_araligi) {
-			tmp[j++] = sinif_baslangic;
-			tmp[j++] = (int)arr[i];
+	for (int i = 0; i < size; i++) {
+		if (arr[i] >= ust_deger) {
+			tmp[j++] = alt_deger;
+			tmp[j++] = ust_deger;
 			tmp[j++] = f_cnt;
-			sinif_baslangic = arr[i];
+			alt_deger = ust_deger;
+			ust_deger = alt_deger + sinif_araligi;
 			f_cnt = 0;
-			continue;
 		}
+		f_cnt++;
 	}
-	f_cnt++;
-	tmp[j++] = sinif_baslangic;
-	tmp[j++] = sinif_baslangic + sinif_araligi;
+	tmp[j++] = alt_deger;
+	tmp[j++] = ust_deger;
 	tmp[j++] = f_cnt;
 	return tmp;
 }

@@ -52,6 +52,29 @@ double d_min_arr(int size, double *arr)
 	return ans;
 }
 
+/*
+ * number format: n.x
+ * if x >= 5: n + 1
+ * else: n
+ * */
+int d_to_int(double n)
+{
+	double ondalik = n - (int)n;
+	n = (int)n;
+	if (ondalik >= 0.5)
+		n++;
+	return n;
+}
+
+int d_to_int_up(double n)
+{
+	double ondalik = n - (int)n;
+	n = (int)n;
+	if (ondalik > 0)
+		n++;
+	return n;
+}
+
 // stupid dictionary implementation
 DICT *create_dict()
 {

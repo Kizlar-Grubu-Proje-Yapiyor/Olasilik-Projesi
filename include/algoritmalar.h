@@ -5,6 +5,8 @@ double d_max(double a, double b);
 double d_min(double a, double b);
 double d_max_arr(int size, double *arr);
 double d_min_arr(int size, double *arr);
+int d_to_int(double n);
+int d_to_int_up(double n);
 
 #ifndef HASH_RATE
 # define HASH_RATE 1000
