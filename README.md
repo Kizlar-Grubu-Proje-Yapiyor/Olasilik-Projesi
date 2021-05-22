@@ -32,18 +32,20 @@ Bu proje BTÜ MAT0293 Olasılık ve İstatistik dersi için hazırlanmıştır.
 
 ### Kullanılabilir Formüller
 
+1. Elaman Sayısı
+1. Dizi Sıralama
 1. Aritmetik Ortalama
-2. Harmonik Ortalama
-3. Geometrik Ortalama
-4. Medyan
-5. Mod
-6. Ortalama Sapma
-7. Standart Sapma
-8. Varyans
-9. Değişim Katsayısı
-10. Permütasyon
-11. Kombinasyon
-12. Verilen sınıf ile frekans hesaplama
+1. Harmonik Ortalama
+1. Geometrik Ortalama
+1. Medyan
+1. Mod
+1. Ortalama Sapma
+1. Standart Sapma
+1. Varyans
+1. Değişim Katsayısı
+1. Permütasyon
+1. Kombinasyon
+1. Verilen Sınıf ile Frekans Hesaplama
 
 ## Kurulum
 
