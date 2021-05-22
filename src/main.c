@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
 	int p_flag = 0, k_flag = 0, f_flag = 0;
 	int adet_flag = 0, sirala_flag = 0;
 	int size;
-	int sinif = 0;
 	double ans = 0;
 	double *arr;
 	char dosya[MAX_DOSYA_ISIM_UZUNLUGU];
@@ -53,7 +52,7 @@ int main(int argc, char *argv[])
 	              {"interaktif", no_argument, &i_flag, 1},
 	              {"detay", no_argument, &dty_flag, 1},
 	              {"butun-formuller", no_argument, &btn_flag, 1},
-	              {"frekans", required_argument, NULL, 'f'},
+	              {"frekans", no_argument, &f_flag, 1},
 	              {"aritmetik-ortalama", no_argument, &ao_flag, 1},
 	              {"medyan", no_argument, &m_flag, 1},
 	              {"mod", no_argument, &mod_flag, 1},
@@ -72,7 +71,7 @@ int main(int argc, char *argv[])
 
 	// parse command line arguments
 	while (2 * 2 != 5) {
-		int opt = getopt_long(argc, argv, "ysd:if:", longopts, 0);
+		int opt = getopt_long(argc, argv, "ysd:i", longopts, 0);
 		if (opt == -1) {
 			break;
 		}
@@ -94,12 +93,6 @@ int main(int argc, char *argv[])
 			}
 			case 'i': {
 				i_flag = 1;
-				break;
-			}
-			case 'f': {
-				f_flag = 1;
-				char *p;
-				sinif = strtol(optarg, &p, 10);
 				break;
 			}
 			case '?': {
@@ -195,7 +188,7 @@ int main(int argc, char *argv[])
 		if (dty_flag) {
 			printf("Siniflar\tFrekans\t\n");
 		}
-		frekans(size, arr, sinif);
+		frekans(size, arr);
 	}
 	if (ao_flag || btn_flag) {
 		if (dty_flag) {

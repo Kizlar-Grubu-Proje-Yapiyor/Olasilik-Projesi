@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "frekans.h"
 #include "algoritmalar.h"
 
-void frekans(int size, double *arr, int sinif)
+void frekans(int size, double *arr)
 {
-	int *tmp = frekans_dizi(size, arr, sinif);
-	for (int i = 0; i < (sinif + 1) * 3; i += 3) {
+	int *tmp = frekans_dizi(size, arr);
+	for (int i = 0; i < (10 + 1) * 3; i += 3) {
 		if (tmp[i] == 0)
 			break;
 		printf("%d-%d\t\t%d\n", tmp[i], tmp[i + 1], tmp[i + 2]);
@@ -24,8 +25,9 @@ void frekans(int size, double *arr, int sinif)
  * bu yuzden kontrol etmelisiniz
  * ve biliyorum, berbat bir fonksiyon
  * */
-int *frekans_dizi(int size, double *arr, int sinif)
+int *frekans_dizi(int size, double *arr)
 {
+	int sinif = 1 + 3.3 * log(size);
 	int *tmp = (int *)calloc(sizeof(int), (sinif + 1) * 3);
 	if (!tmp) {
 		fprintf(stderr, "Bellek yetersiz!\n");
