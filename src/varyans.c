@@ -6,7 +6,7 @@
 double varyans(int size, double *arr)
 {
 	double ao = aritmetik_ortalama(size, arr);
-	double arrtmp[MAX_NUM];
+	double arrtmp[size];
 	for (int i = 0; i < size; i++) {
 		arrtmp[i] = pow(arr[i] - ao, 2);
 	}
