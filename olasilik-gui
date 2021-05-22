@@ -11,8 +11,8 @@ main()
 	do
 		SECIM=$(whiptail --title "Olasılık ve İstatistik" \
 		--ok-button "Seç" --cancel-button "Çıkış" \
-		--menu "Seçeneklerden birini seçiniz" \
-		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 10 \
+		--menu "Seçeneklerden birini seçiniz:" \
+		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 11 \
 		"1" "Aritmetik Ortalama" \
 		"2" "Harmonik Ortalama" \
 		"3" "Geometrik Ortalama" \
@@ -22,7 +22,8 @@ main()
 		"7" "Standart Sapma" \
 		"8" "Varyans" \
 		"9" "Değişim Katsayısı" \
-		"10" "Permütasyon"
+		"10" "Permütasyon" \
+		"11" "Kombinasyon"
 		)
 		
 		if [ $? = 1 ]
@@ -199,6 +200,23 @@ main()
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
 			${WINDOW_WIDTH} --title "Permütasyon" 3>&1 1>&2 2>&3
+
+		# Kombinasyon
+		elif [ ${SECIM} -eq 11 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --kombinasyon)
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Kombinasyon" 3>&1 1>&2 2>&3
 		fi
 	done
 }

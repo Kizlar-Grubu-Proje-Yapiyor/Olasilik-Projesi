@@ -39,5 +39,7 @@ void yardim(FILE *fp, const char *argv)
 	        "\tVerilen sayilarin degisim katsayisini hesaplar\n"
 	        "--permutasyon N R\n"
 	        "\tVerilen iki sayının permutasyonunu hesaplar\n"
+	        "--kombinasyon N R\n"
+	        "\tVerilen iki sayının kombinasyonunu hesaplar\n"
 	        , argv);
 }

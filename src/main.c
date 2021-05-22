@@ -19,6 +19,7 @@
 #include "standartsapma.h"
 #include "degisimkatsayisi.h"
 #include "permutasyon.h"
+#include "kombinasyon.h"
 
 int main(int argc, char *argv[])
 {
@@ -35,7 +36,8 @@ int main(int argc, char *argv[])
 
 	// if there are no arguments, print help and exit with status 1
 	if (argc <= 1) {
-		yardim(stdout, argv[0]);
+		fprintf(stderr, "Arguman girilmedi!\n");
+		yardim(stderr, argv[0]);
 		return 1;
 	}
 
@@ -237,7 +239,7 @@ int main(int argc, char *argv[])
 		if (dty_flag) {
 			printf("Kombinasyon: ");
 		}
-		ans = 0;
+		ans = kombinasyon(arr[0], arr[1]);
 		printf("%lf\n", ans);
 	}
 
