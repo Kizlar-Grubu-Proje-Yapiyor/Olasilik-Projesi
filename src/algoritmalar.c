@@ -16,6 +16,14 @@ double d_abs(double a)
 	return (a >= 0)? a: -a;
 }
 
+double d_factorial(double n)
+{
+	double ans = 1;
+	for (int i = 2; i <= n; i++) {
+		ans *= i;
+	}
+	return ans;
+}
 
 // stupid dictionary implementation
 DICT *create_dict()

@@ -41,6 +41,7 @@ Bu proje BTÜ MAT0293 Olasılık ve İstatistik dersi için hazırlanmıştır.
 7. Standart Sapma
 8. Varyans
 9. Değişim Katsayısı
+10. Permütasyon
 
 
 ## Kurulum

@@ -1,5 +1,6 @@
 int cmpfunc (const void *a, const void *b);
 double d_abs(double a);
+double d_factorial(double n);
 
 #ifndef HASH_RATE
 # define HASH_RATE 1000

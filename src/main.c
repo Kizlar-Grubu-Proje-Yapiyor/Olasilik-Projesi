@@ -18,6 +18,7 @@
 #include "varyans.h"
 #include "standartsapma.h"
 #include "degisimkatsayisi.h"
+#include "permutasyon.h"
 
 int main(int argc, char *argv[])
 {
@@ -25,6 +26,7 @@ int main(int argc, char *argv[])
 	int ao_flag = 0, m_flag = 0, mod_flag = 0, ho_flag = 0;
 	int osap_flag = 0, go_flag = 0, v_flag = 0, ss_flag = 0;
 	int dty_flag = 0, btn_flag = 0, dk_flag = 0;
+	int p_flag = 0, k_flag = 0;
 	int size;
 	double ans = 0;
 	double *arr;
@@ -54,6 +56,8 @@ int main(int argc, char *argv[])
 	              {"varyans", no_argument, &v_flag, 1},
 	              {"standart-sapma", no_argument, &ss_flag, 1},
 	              {"degisim-katsayisi", no_argument, &dk_flag, 1},
+	              {"permutasyon", no_argument, &p_flag, 1},
+	              {"kombinasyon", no_argument, &k_flag, 1},
 	              {0}};
 
 	// parse command line arguments
@@ -220,6 +224,20 @@ int main(int argc, char *argv[])
 			printf("Degisim katsayisi: ");
 		}
 		ans = degisim_katsayisi(size, arr);
+		printf("%lf\n", ans);
+	}
+	if (p_flag || btn_flag) {
+		if (dty_flag) {
+			printf("Permutasyon: ");
+		}
+		ans = permutasyon(arr[0], arr[1]);
+		printf("%lf\n", ans);
+	}
+	if (k_flag || btn_flag) {
+		if (dty_flag) {
+			printf("Kombinasyon: ");
+		}
+		ans = 0;
 		printf("%lf\n", ans);
 	}
 

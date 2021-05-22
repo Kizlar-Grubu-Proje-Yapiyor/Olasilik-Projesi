@@ -1,5 +1,4 @@
 #!/bin/bash
-# Author: Ceyhun Sen
 # Olasilik projesi icin gui arayuzudur.
 # Whiptail paketinin yuklu olması zorunludur.
 
@@ -13,7 +12,7 @@ main()
 		SECIM=$(whiptail --title "Olasılık ve İstatistik" \
 		--ok-button "Seç" --cancel-button "Çıkış" \
 		--menu "Seçeneklerden birini seçiniz" \
-		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 9 \
+		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 10 \
 		"1" "Aritmetik Ortalama" \
 		"2" "Harmonik Ortalama" \
 		"3" "Geometrik Ortalama" \
@@ -22,7 +21,8 @@ main()
 		"6" "Ortalama Sapma" \
 		"7" "Standart Sapma" \
 		"8" "Varyans" \
-		"9" "Değişim Katsayısı"
+		"9" "Değişim Katsayısı" \
+		"10" "Permütasyon"
 		)
 		
 		if [ $? = 1 ]
@@ -182,6 +182,23 @@ main()
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
 			${WINDOW_WIDTH} --title "Değişim Katsayısı" 3>&1 1>&2 2>&3
+
+		# Permütasyon
+		elif [ ${SECIM} -eq 10 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --permutasyon)
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Permütasyon" 3>&1 1>&2 2>&3
 		fi
 	done
 }

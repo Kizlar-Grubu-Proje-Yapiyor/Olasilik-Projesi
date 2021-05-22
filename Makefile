@@ -11,7 +11,7 @@ DBGFLAGS = -Wall
 OBJS = main.o yardim.o sinirlar.o interaktif.o dosya.o algoritmalar.o \
        aritmetikortalama.o medyan.o mod.o harmonikortalama.o \
        ortalamasapma.o geometrikortalama.o varyans.o standartsapma.o \
-       degisimkatsayisi.o
+       degisimkatsayisi.o permutasyon.o
 
 HDR = $(IDIR)/main.h $(IDIR)/algoritmalar.h
 
