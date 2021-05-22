@@ -10,7 +10,7 @@ main()
 		SECIM=$(whiptail --title "Olasılık ve İstatistik" \
 		--ok-button "Seç" --cancel-button "Çıkış" \
 		--menu "Seçeneklerden birini seçiniz:" \
-		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 13 \
+		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 14 \
 		"1" "Elaman Sayısı" \
 		"2" "Diziyi Sırala" \
 		"3" "Aritmetik Ortalama" \
@@ -23,7 +23,8 @@ main()
 		"10" "Varyans" \
 		"11" "Değişim Katsayısı" \
 		"12" "Permütasyon" \
-		"13" "Kombinasyon"
+		"13" "Kombinasyon" \
+		"14" "Frekans"
 		)
 		
 		if [ $? = 1 ]
@@ -250,6 +251,27 @@ main()
 			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --kombinasyon)
 
 			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Kombinasyon" 3>&1 1>&2 2>&3
+
+		# Frekans
+		elif [ ${SECIM} -eq 14 ]
+		then
+			base=$(whiptail --inputbox "Sınıf sayısını giriniz:" \
+			     ${WINDOW_HEIGHT} ${WINDOW_WIDTH} --title "Olasılık ve İstatistik" \
+			     --ok-button "Hesapla" --cancel-button "Vazgeç" \
+			     3>&1 1>&2 2>&3)
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --frekans ${base})
+
+			whiptail --msgbox "Cevabınız:\n${CEVAP}" ${WINDOW_HEIGHT} \
 			${WINDOW_WIDTH} --title "Kombinasyon" 3>&1 1>&2 2>&3
 		fi
 	done

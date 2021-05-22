@@ -67,50 +67,48 @@ int main(int argc, char *argv[])
 	              {"kombinasyon", no_argument, &k_flag, 1},
 	              {"adet", no_argument, &adet_flag, 1},
 	              {"sirala", no_argument, &sirala_flag, 1},
-	              {0}};
+	              {0}
+	              };
 
 	// parse command line arguments
-	while (2 * 2 != 5) { // that's for you, my middle school friend who told me
-	                     // that 2 * 2 is equal to 5. duh!
-	                     // ok, i know why he said that. stop hating me.
-
+	while (2 * 2 != 5) {
 		int opt = getopt_long(argc, argv, "ysd:if:", longopts, 0);
 		if (opt == -1) {
 			break;
 		}
 
 		switch (opt) {
-		case 'y': {
-			y_flag = 1;
-			break;
-		}
-		case 's': {
-			s_flag = 1;
-			break;
-		}
-		case 'd': {
-			d_flag = 1;
-			strncpy(dosya, optarg, sizeof(dosya));
-			dosya[sizeof(dosya) - 1] = '\0';
-			break;
-		}
-		case 'i': {
-			i_flag = 1;
-			break;
-		}
-		case 'f': {
-			f_flag = 1;
-			char *p;
-			sinif = strtol(optarg, &p, 10);
-			break;
-		}
-		case '?': {
-			yardim(stderr, argv[0]);
-			return 1;
-		}
-		default: {
-			break;
-		}
+			case 'y': {
+				y_flag = 1;
+				break;
+			}
+			case 's': {
+				s_flag = 1;
+				break;
+			}
+			case 'd': {
+				d_flag = 1;
+				strncpy(dosya, optarg, sizeof(dosya));
+				dosya[sizeof(dosya) - 1] = '\0';
+				break;
+			}
+			case 'i': {
+				i_flag = 1;
+				break;
+			}
+			case 'f': {
+				f_flag = 1;
+				char *p;
+				sinif = strtol(optarg, &p, 10);
+				break;
+			}
+			case '?': {
+				yardim(stderr, argv[0]);
+				return 1;
+			}
+			default: {
+				break;
+			}
 		}
 	}
 
@@ -276,6 +274,7 @@ int main(int argc, char *argv[])
 		ans = kombinasyon(arr[0], arr[1]);
 		printf("%lf\n", ans);
 	}
+
 
 	free(arr);
 	arr = NULL;

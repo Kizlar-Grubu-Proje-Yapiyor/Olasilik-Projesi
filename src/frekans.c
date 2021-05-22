@@ -16,7 +16,7 @@ void frekans(int size, double *arr, int sinif)
 	for (int i = 1; i < size; i++) {
 		f_cnt++;
 		if (arr[i] - sinif_baslangic >= sinif_araligi) {
-			printf("%d-%d\t%10d\n", sinif_baslangic, (int)arr[i], f_cnt);
+			printf("%d-%d\t\t%d\n", sinif_baslangic, (int)arr[i], f_cnt);
 			sinif_baslangic = arr[i];
 			f_cnt = 0;
 			continue;
