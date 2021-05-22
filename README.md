@@ -43,7 +43,7 @@ Bu proje BTÜ MAT0293 Olasılık ve İstatistik dersi için hazırlanmıştır.
 9. Değişim Katsayısı
 10. Permütasyon
 11. Kombinasyon
-
+12. Verilen sınıf ile frekans hesaplama
 
 ## Kurulum
 
