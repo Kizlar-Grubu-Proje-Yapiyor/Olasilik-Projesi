@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 
 	// if there are no arguments, print help and exit with status 1
 	if (argc <= 1) {
-		fprintf(stderr, "Arguman girilmedi!\n");
+		fprintf(stderr, "Arguman girilmedi!\n\n");
 		yardim(stderr, argv[0]);
 		return 1;
 	}
@@ -228,14 +228,14 @@ int main(int argc, char *argv[])
 		ans = degisim_katsayisi(size, arr);
 		printf("%lf\n", ans);
 	}
-	if (p_flag || btn_flag) {
+	if (p_flag) {
 		if (dty_flag) {
 			printf("Permutasyon: ");
 		}
 		ans = permutasyon(arr[0], arr[1]);
 		printf("%lf\n", ans);
 	}
-	if (k_flag || btn_flag) {
+	if (k_flag) {
 		if (dty_flag) {
 			printf("Kombinasyon: ");
 		}

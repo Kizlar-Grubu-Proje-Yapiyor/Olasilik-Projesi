@@ -4,7 +4,10 @@
 void yardim(FILE *fp, const char *argv)
 {
 	fprintf(fp,
-	        "Kullanim: %s [SECENEK(LER)] [DEGER(LER)]\n\n"
+	        "Kullanim:\n"
+	        " %s [SECENEK(LER)] [DEGER(LER)]\n"
+	        " %s [SECENEK(LER)] N R\n"
+	        "\n"
 	        "Genel secenekler:\n"
 	        " -y, --yardim\n"
 	        "\tYardimi goruntuler\n"
@@ -17,7 +20,7 @@ void yardim(FILE *fp, const char *argv)
 	        " --detay\n"
 	        "\tCiktida hangi formulun cevabi oldugunu da yazar\n"
 	        " --butun-formuller\n"
-	        "\tKullanilabilir butun fonksiyonlarin cevabini yazar\n"
+	        "\tDizi ile hesaplanabilen butun formulleri hesaplar\n"
 	        "\n"
 	        "Kullanilabilir formuller:\n"
 	        " --aritmetik-ortalama [DEGER(LER)]\n"
@@ -39,8 +42,8 @@ void yardim(FILE *fp, const char *argv)
 	        " --degisim-katsayisi [DEGER(LER)]\n"
 	        "\tVerilen sayilarin degisim katsayisini hesaplar\n"
 	        " --permutasyon N R\n"
-	        "\tVerilen iki sayının permutasyonunu hesaplar\n"
+	        "\tN sayisinin R'li permutasyonunu hesaplar\n"
 	        " --kombinasyon N R\n"
-	        "\tVerilen iki sayının kombinasyonunu hesaplar\n"
-	        , argv);
+	        "\tN sayisinin R'li kombinasyonunu hesaplar\n"
+	        , argv, argv);
 }
