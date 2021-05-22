@@ -21,6 +21,7 @@
 #include "permutasyon.h"
 #include "kombinasyon.h"
 #include "frekans.h"
+#include "algoritmalar.h"
 
 int main(int argc, char *argv[])
 {
@@ -29,6 +30,7 @@ int main(int argc, char *argv[])
 	int osap_flag = 0, go_flag = 0, v_flag = 0, ss_flag = 0;
 	int dty_flag = 0, btn_flag = 0, dk_flag = 0;
 	int p_flag = 0, k_flag = 0, f_flag = 0;
+	int adet_flag = 0, sirala_flag = 0;
 	int size;
 	int sinif = 0;
 	double ans = 0;
@@ -63,6 +65,8 @@ int main(int argc, char *argv[])
 	              {"degisim-katsayisi", no_argument, &dk_flag, 1},
 	              {"permutasyon", no_argument, &p_flag, 1},
 	              {"kombinasyon", no_argument, &k_flag, 1},
+	              {"adet", no_argument, &adet_flag, 1},
+	              {"sirala", no_argument, &sirala_flag, 1},
 	              {0}};
 
 	// parse command line arguments
@@ -174,6 +178,21 @@ int main(int argc, char *argv[])
 
 
 	// action!
+	if (adet_flag || btn_flag) {
+		if (dty_flag) {
+			printf("Eleman sayisi: ");
+		}
+		printf("%d\n", size);
+	}
+	if (sirala_flag) {
+		if (dty_flag) {
+			printf("Siralanmis liste: ");
+		}
+		qsort(arr, size, sizeof(double), cmpfunc);
+		for (int i = 0; i < size; i++)
+			printf("%d ", (int)arr[i]);
+		printf("\n");
+	}
 	if (f_flag) {
 		if (dty_flag) {
 			printf("Siniflar\tFrekans\t\n");

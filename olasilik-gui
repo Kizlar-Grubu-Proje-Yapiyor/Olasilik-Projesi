@@ -1,6 +1,4 @@
 #!/bin/bash
-# Olasilik projesi icin gui arayuzudur.
-# Whiptail paketinin yuklu olması zorunludur.
 
 WINDOW_HEIGHT=30
 WINDOW_WIDTH=125
@@ -12,18 +10,20 @@ main()
 		SECIM=$(whiptail --title "Olasılık ve İstatistik" \
 		--ok-button "Seç" --cancel-button "Çıkış" \
 		--menu "Seçeneklerden birini seçiniz:" \
-		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 11 \
-		"1" "Aritmetik Ortalama" \
-		"2" "Harmonik Ortalama" \
-		"3" "Geometrik Ortalama" \
-		"4" "Medyan" \
-		"5" "Mod" \
-		"6" "Ortalama Sapma" \
-		"7" "Standart Sapma" \
-		"8" "Varyans" \
-		"9" "Değişim Katsayısı" \
-		"10" "Permütasyon" \
-		"11" "Kombinasyon"
+		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 13 \
+		"1" "Elaman Sayısı" \
+		"2" "Diziyi Sırala" \
+		"3" "Aritmetik Ortalama" \
+		"4" "Harmonik Ortalama" \
+		"5" "Geometrik Ortalama" \
+		"6" "Medyan" \
+		"7" "Mod" \
+		"8" "Ortalama Sapma" \
+		"9" "Standart Sapma" \
+		"10" "Varyans" \
+		"11" "Değişim Katsayısı" \
+		"12" "Permütasyon" \
+		"13" "Kombinasyon"
 		)
 		
 		if [ $? = 1 ]
@@ -31,8 +31,42 @@ main()
 			break
 		fi
 
-		# Aritmetik Ortalama
+		# Adet
 		if [ ${SECIM} -eq 1 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --adet)
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Eleman Sayısı" 3>&1 1>&2 2>&3
+
+		# Sirala
+		elif [ ${SECIM} -eq 2 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --sirala)
+
+			whiptail --msgbox "Cevabınız: ${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Sıralanmış Dizi" 3>&1 1>&2 2>&3
+
+		# Aritmetik Ortalama
+		elif [ ${SECIM} -eq 3 ]
 		then
 			sayi_al
 
@@ -49,7 +83,7 @@ main()
 			${WINDOW_WIDTH} --title "Aritmetik Ortalama" 3>&1 1>&2 2>&3
 
 		# Harmonik Ortalama
-		elif [ ${SECIM} -eq 2 ]
+		elif [ ${SECIM} -eq 4 ]
 		then
 			sayi_al
 
@@ -66,7 +100,7 @@ main()
 			${WINDOW_WIDTH} --title "Harmonik Ortalama" 3>&1 1>&2 2>&3
 
 		# Geometrik Ortalama
-		elif [ ${SECIM} -eq 3 ]
+		elif [ ${SECIM} -eq 5 ]
 		then
 			sayi_al
 
@@ -83,7 +117,7 @@ main()
 			${WINDOW_WIDTH} --title "Geometrik Ortalama" 3>&1 1>&2 2>&3
 
 		# Medyan
-		elif [ ${SECIM} -eq 4 ]
+		elif [ ${SECIM} -eq 6 ]
 		then
 			sayi_al
 
@@ -100,7 +134,7 @@ main()
 			${WINDOW_WIDTH} --title "Medyan" 3>&1 1>&2 2>&3
 
 		# Mod
-		elif [ ${SECIM} -eq 5 ]
+		elif [ ${SECIM} -eq 7 ]
 		then
 			sayi_al
 
@@ -117,7 +151,7 @@ main()
 			${WINDOW_WIDTH} --title "Mod" 3>&1 1>&2 2>&3
 
 		# Ortalama Sapma
-		elif [ ${SECIM} -eq 6 ]
+		elif [ ${SECIM} -eq 8 ]
 		then
 			sayi_al
 
@@ -134,7 +168,7 @@ main()
 			${WINDOW_WIDTH} --title "Ortalama Sapma" 3>&1 1>&2 2>&3
 
 		# Standart Sapma
-		elif [ ${SECIM} -eq 7 ]
+		elif [ ${SECIM} -eq 9 ]
 		then
 			sayi_al
 
@@ -151,7 +185,7 @@ main()
 			${WINDOW_WIDTH} --title "Standart Sapma" 3>&1 1>&2 2>&3
 
 		# Varyans
-		elif [ ${SECIM} -eq 8 ]
+		elif [ ${SECIM} -eq 10 ]
 		then
 			sayi_al
 
@@ -168,7 +202,7 @@ main()
 			${WINDOW_WIDTH} --title "Varyans" 3>&1 1>&2 2>&3
 
 		# Degisim Katsayısı
-		elif [ ${SECIM} -eq 9 ]
+		elif [ ${SECIM} -eq 11 ]
 		then
 			sayi_al
 
@@ -185,7 +219,7 @@ main()
 			${WINDOW_WIDTH} --title "Değişim Katsayısı" 3>&1 1>&2 2>&3
 
 		# Permütasyon
-		elif [ ${SECIM} -eq 10 ]
+		elif [ ${SECIM} -eq 12 ]
 		then
 			sayi_al
 
@@ -202,7 +236,7 @@ main()
 			${WINDOW_WIDTH} --title "Permütasyon" 3>&1 1>&2 2>&3
 
 		# Kombinasyon
-		elif [ ${SECIM} -eq 11 ]
+		elif [ ${SECIM} -eq 13 ]
 		then
 			sayi_al
 
