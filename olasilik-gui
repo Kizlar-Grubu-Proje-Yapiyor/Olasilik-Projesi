@@ -10,7 +10,7 @@ main()
 		SECIM=$(whiptail --title "Olasılık ve İstatistik" \
 		--ok-button "Seç" --cancel-button "Çıkış" \
 		--menu "Seçeneklerden birini seçiniz:" \
-		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 14 \
+		${WINDOW_HEIGHT} ${WINDOW_WIDTH} 3>&1 1>&2 2>&3 15 \
 		"1" "Elaman Sayısı" \
 		"2" "Diziyi Sırala" \
 		"3" "Aritmetik Ortalama" \
@@ -24,7 +24,8 @@ main()
 		"11" "Değişim Katsayısı" \
 		"12" "Permütasyon" \
 		"13" "Kombinasyon" \
-		"14" "Frekans"
+		"14" "Frekans" \
+		"15" "Histogram"
 		)
 		
 		if [ $? = 1 ]
@@ -269,6 +270,23 @@ main()
 
 			whiptail --msgbox "Cevabınız:\n${CEVAP}" ${WINDOW_HEIGHT} \
 			${WINDOW_WIDTH} --title "Frekans" 3>&1 1>&2 2>&3
+
+		# Histogram
+		elif [ ${SECIM} -eq 15 ]
+		then
+			sayi_al
+
+			if [ $? = 1 ]
+			then
+				continue
+			fi
+
+			echo ${DIZI[@]} > "whiptail-girdi.txt"
+
+			CEVAP=$(./olasilik -d "whiptail-girdi.txt" --histogram)
+
+			whiptail --msgbox "Cevabınız:\n${CEVAP}" ${WINDOW_HEIGHT} \
+			${WINDOW_WIDTH} --title "Histogram" 3>&1 1>&2 2>&3
 		fi
 	done
 }

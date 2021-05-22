@@ -51,5 +51,9 @@ void yardim(FILE *fp, const char *argv)
 	        "\tN sayisinin R'li permutasyonunu hesaplar\n"
 	        " --kombinasyon N R\n"
 	        "\tN sayisinin R'li kombinasyonunu hesaplar\n"
+	        " --frekans [DEGER(LER)]\n"
+	        "\tVerilen sayilarin frekans dagilimini verir\n"
+	        " --histogram [DEGER(LER)]\n"
+	        "\tVerilen sayilarin histogram grafigini verir\n"
 	        , argv, argv);
 }

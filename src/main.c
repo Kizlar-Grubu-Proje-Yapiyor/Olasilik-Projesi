@@ -22,6 +22,7 @@
 #include "kombinasyon.h"
 #include "frekans.h"
 #include "algoritmalar.h"
+#include "histogram.h"
 
 int main(int argc, char *argv[])
 {
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
 	int ao_flag = 0, m_flag = 0, mod_flag = 0, ho_flag = 0;
 	int osap_flag = 0, go_flag = 0, v_flag = 0, ss_flag = 0;
 	int dty_flag = 0, btn_flag = 0, dk_flag = 0;
-	int p_flag = 0, k_flag = 0, f_flag = 0;
+	int p_flag = 0, k_flag = 0, f_flag = 0, h_flag = 0;
 	int adet_flag = 0, sirala_flag = 0;
 	int size = 0;
 	double ans = 0;
@@ -66,6 +67,7 @@ int main(int argc, char *argv[])
 	              {"kombinasyon", no_argument, &k_flag, 1},
 	              {"adet", no_argument, &adet_flag, 1},
 	              {"sirala", no_argument, &sirala_flag, 1},
+	              {"histogram", no_argument, &h_flag, 1},
 	              {0}
 	              };
 
@@ -266,6 +268,12 @@ int main(int argc, char *argv[])
 		}
 		ans = kombinasyon(arr[0], arr[1]);
 		printf("%lf\n", ans);
+	}
+	if (h_flag) {
+		if (dty_flag) {
+			printf("Kombinasyon: ");
+		}
+		histogram(size, arr);
 	}
 
 
