@@ -45,7 +45,8 @@ Bu proje BTÜ MAT0293 Olasılık ve İstatistik dersi için hazırlanmıştır.
 1. Değişim Katsayısı
 1. Permütasyon
 1. Kombinasyon
-1. Verilen Sınıf ile Frekans Hesaplama
+1. Frekans
+1. Histogram
 
 ## Kurulum
 

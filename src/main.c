@@ -186,12 +186,6 @@ int main(int argc, char *argv[])
 			printf("%d ", (int)arr[i]);
 		printf("\n");
 	}
-	if (f_flag) {
-		if (dty_flag) {
-			printf("Siniflar\tFrekans\t\n");
-		}
-		frekans(size, arr);
-	}
 	if (ao_flag || btn_flag) {
 		if (dty_flag) {
 			printf("Aritmetik ortalama: ");
@@ -269,9 +263,15 @@ int main(int argc, char *argv[])
 		ans = kombinasyon(arr[0], arr[1]);
 		printf("%lf\n", ans);
 	}
+	if (f_flag) {
+		if (dty_flag) {
+			printf("Siniflar\tFrekans\t\n");
+		}
+		frekans(size, arr);
+	}
 	if (h_flag) {
 		if (dty_flag) {
-			printf("Kombinasyon: ");
+			printf("Siniflar\tFrekans\t\n");
 		}
 		histogram(size, arr);
 	}

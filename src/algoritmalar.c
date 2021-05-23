@@ -70,9 +70,14 @@ int d_to_int_up(double n)
 {
 	double ondalik = n - (int)n;
 	n = (int)n;
-	if (ondalik > 0)
+	if (ondalik > 0.0)
 		n++;
 	return n;
+}
+
+int d_to_int_down(double n)
+{
+	return (int)n;
 }
 
 // stupid dictionary implementation

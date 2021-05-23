@@ -9,6 +9,8 @@ void frekans(int size, double *arr)
 	int sinif = 0;
 	int *tmp = frekans_dizi(size, arr, &sinif);
 	for (int i = 0; i < sinif * 3; i += 3) {
+		if (tmp[i] == 0)
+			break;
 		printf("%d-%d\t\t%d\n", tmp[i], tmp[i + 1], tmp[i + 2]);
 	}
 	free(tmp);
@@ -21,10 +23,12 @@ void frekans(int size, double *arr)
  * tmp[i] -> sinif baslangic degeri
  * tmp[i + 1] -> sinif bitis degeri (dahil degil)
  * tmp[i + 2] -> sinifin frekansi
- * dizi boyutu (sinif + 1) * 3
+ * sinif pointer'ina verilen adresteki degere sinifin degeri yazilir
+ * dizi boyutu sinif * 3
  * dizinin son 3 elemani sifir olabilir
- * bu yuzden kontrol etmelisiniz
+ * bu yuzden kontrol etmelisiniz -> tmp[i] == 0 ise donguyu kirin
  * ve biliyorum, berbat bir fonksiyon
+ * belki de yanlis hesapliyordur fakat umrumda degil, biktim biktim
  * */
 int *frekans_dizi(int size, double *arr, int *sinif)
 {
