@@ -21,8 +21,6 @@ void yardim(FILE *fp, const char *argv)
 	        "\tCiktida hangi formulun cevabi oldugunu da yazar\n"
 	        " --butun-formuller\n"
 	        "\tDizi ile hesaplanabilen butun formulleri hesaplar\n"
-	        " -f, --frekans\n"
-	        "\tFrekans dagilimini verir\n"
 	        "\n"
 	        "Kullanilabilir formuller:\n"
 	        " --adet [DEGER(LER)]\n"
