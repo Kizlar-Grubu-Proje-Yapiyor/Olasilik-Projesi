@@ -1,0 +1,1 @@
+void versiyon(FILE *fp);

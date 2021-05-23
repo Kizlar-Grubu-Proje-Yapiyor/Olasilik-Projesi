@@ -23,6 +23,7 @@
 #include "frekans.h"
 #include "algoritmalar.h"
 #include "histogram.h"
+#include "versiyon.h"
 
 int main(int argc, char *argv[])
 {
@@ -31,7 +32,7 @@ int main(int argc, char *argv[])
 	int osap_flag = 0, go_flag = 0, v_flag = 0, ss_flag = 0;
 	int dty_flag = 0, btn_flag = 0, dk_flag = 0;
 	int p_flag = 0, k_flag = 0, f_flag = 0, h_flag = 0;
-	int adet_flag = 0, sirala_flag = 0;
+	int adet_flag = 0, sirala_flag = 0, ver_flag = 0;
 	int size = 0;
 	double ans = 0;
 	double *arr;
@@ -68,12 +69,13 @@ int main(int argc, char *argv[])
 	              {"adet", no_argument, &adet_flag, 1},
 	              {"sirala", no_argument, &sirala_flag, 1},
 	              {"histogram", no_argument, &h_flag, 1},
+	              {"versiyon", no_argument, &ver_flag, 1},
 	              {0}
 	              };
 
 	// parse command line arguments
 	while (2 * 2 != 5) {
-		int opt = getopt_long(argc, argv, "ysd:i", longopts, 0);
+		int opt = getopt_long(argc, argv, "ysd:iv", longopts, 0);
 		if (opt == -1) {
 			break;
 		}
@@ -97,6 +99,10 @@ int main(int argc, char *argv[])
 				i_flag = 1;
 				break;
 			}
+			case 'v': {
+				ver_flag = 1;
+				break;
+			}
 			case '?': {
 				yardim(stderr, argv[0]);
 				return 1;
@@ -117,6 +123,12 @@ int main(int argc, char *argv[])
 	// display limits and exit
 	if (s_flag) {
 		sinirlar(stdout);
+		return 0;
+	}
+
+	// display version information
+	if (ver_flag) {
+		versiyon(stdout);
 		return 0;
 	}
 
