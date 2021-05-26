@@ -151,7 +151,7 @@ int main(int argc, char *argv[])
 
 	// take numbers as arguments
 	if (!d_flag && !i_flag) {
-		arr = malloc(sizeof(double) * MAX_NUM);
+		arr = (double *)malloc(sizeof(double) * MAX_NUM);
 		if (arr == NULL) {
 			fprintf(stderr, "Bellek yetersiz!\n");
 			exit(1);

@@ -68,11 +68,11 @@ int d_to_int(double n)
 
 int d_to_int_up(double n)
 {
-	double ondalik = n - (int)n;
-	n = (int)n;
+	int tmp = (int)n;
+	double ondalik = n - (double)tmp;
 	if (ondalik > 0.0)
 		n++;
-	return n;
+	return (int)n;
 }
 
 int d_to_int_down(double n)

@@ -32,10 +32,10 @@ void frekans(int size, double *arr)
  * */
 int *frekans_dizi(int size, double *arr, int *sinif)
 {
-	int sinif_tmp = d_to_int(1 + 3.3 * log10(size));
+	int sinif_tmp = d_to_int_up(1 + 3.3 * log10(size));
 	*sinif = sinif_tmp;
 
-	int *tmp = (int *)malloc(sizeof(int) * sinif_tmp * 3);
+	int *tmp = (int *)malloc(((sinif_tmp + 1) * 3) * sizeof(int));
 	if (!tmp) {
 		fprintf(stderr, "Bellek yetersiz!\n");
 		exit(1);
@@ -45,10 +45,10 @@ int *frekans_dizi(int size, double *arr, int *sinif)
 	qsort(arr, size, sizeof(double), cmpfunc);
 
 	int sinif_araligi = d_to_int_up((arr[size - 1] - arr[0]) / sinif_tmp);
-	int alt_deger = arr[0], ust_deger = arr[0] + sinif_araligi;
+	int alt_deger = (int)arr[0], ust_deger = (int)arr[0] + sinif_araligi;
 	int f_cnt = 0;
 	for (int i = 0; i < size; i++) {
-		if (arr[i] >= ust_deger) {
+		if ((int)arr[i] >= ust_deger) {
 			tmp[j++] = alt_deger;
 			tmp[j++] = ust_deger;
 			tmp[j++] = f_cnt;
