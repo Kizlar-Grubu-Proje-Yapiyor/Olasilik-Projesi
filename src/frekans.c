@@ -33,7 +33,7 @@ void frekans(int size, double *arr)
 int *frekans_dizi(int size, double *arr, int *sinif)
 {
 	int sinif_tmp = d_to_int(1 + 3.3 * log10(size));
-	while (pow(sinif_tmp, 2) < size)
+	while (pow(2, sinif_tmp) < (double)size)
 		sinif_tmp++;
 	*sinif = sinif_tmp;
 
